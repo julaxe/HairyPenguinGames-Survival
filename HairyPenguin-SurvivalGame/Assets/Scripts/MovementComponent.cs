@@ -57,14 +57,14 @@ public class MovementComponent : MonoBehaviour
     public void OnMovement(InputValue value)
     {
         inputVector = value.Get<Vector2>();
-        playerAnimator.SetFloat(movementXHash, inputVector.x);
-        playerAnimator.SetFloat(movementYHash, inputVector.y);
+        // playerAnimator.SetFloat(movementXHash, inputVector.x);
+        // playerAnimator.SetFloat(movementYHash, inputVector.y);
     }
 
     public void OnRun(InputValue value)
     {
         playerController.isRunning = value.isPressed;
-        playerAnimator.SetBool(isRunningHash, playerController.isRunning);
+        // playerAnimator.SetBool(isRunningHash, playerController.isRunning);
     }
 
     public void OnJump(InputValue value)
@@ -73,7 +73,7 @@ public class MovementComponent : MonoBehaviour
 
         playerController.isJumping = value.isPressed;
         rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
-        playerAnimator.SetBool(isJumpingHash, playerController.isJumping);
+        // playerAnimator.SetBool(isJumpingHash, playerController.isJumping);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -81,6 +81,6 @@ public class MovementComponent : MonoBehaviour
         if (!collision.gameObject.CompareTag("Ground") && !playerController.isJumping) return;
 
         playerController.isJumping = false;
-        playerAnimator.SetBool(isJumpingHash, false);
+        // playerAnimator.SetBool(isJumpingHash, false);
     }
 }
