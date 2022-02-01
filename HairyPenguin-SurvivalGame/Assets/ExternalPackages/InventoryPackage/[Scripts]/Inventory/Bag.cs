@@ -51,23 +51,28 @@ public class Bag : MonoBehaviour
 
         foreach(GenerateItem item in initialItems)
         {
-            if(item.Template.isConsumable)
-            {
-                //Add consumable item
-                AddConsumable(item);
-            }
-            else
-            {
-                //Add No consumable item
-                for (int i = 0; i < item.Count; i++)
-                {
-                    AddNoConsumable(item);
-                }
-            }
+            AddNewItemToTheBag(item);
         }
 
         HideItems();
 
+    }
+
+    public void AddNewItemToTheBag(GenerateItem item)
+    {
+        if(item.Template.isConsumable)
+        {
+            //Add consumable item
+            AddConsumable(item);
+        }
+        else
+        {
+            //Add No consumable item
+            for (int i = 0; i < item.Count; i++)
+            {
+                AddNoConsumable(item);
+            }
+        }
     }
     // Update is called once per frame
     private void AddConsumable(GenerateItem template)
@@ -75,12 +80,14 @@ public class Bag : MonoBehaviour
         GameObject item = Instantiate(itemPrefab, ItemsLocation);
         item.GetComponent<Item>().ItemTemplate = template.Template;
         item.GetComponent<Item>().ItemCount = template.Count;
+        item.SetActive(false);
         AddAnItemToTheBagViaCode(item);
     }
     private void AddNoConsumable(GenerateItem template)
     {
         GameObject item = Instantiate(itemPrefab, ItemsLocation);
         item.GetComponent<Item>().ItemTemplate = template.Template;
+        item.SetActive(false);
         AddAnItemToTheBagViaCode(item);
     }
 

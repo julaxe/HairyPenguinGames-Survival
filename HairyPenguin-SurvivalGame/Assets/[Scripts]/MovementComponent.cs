@@ -76,6 +76,11 @@ public class MovementComponent : MonoBehaviour
         // playerAnimator.SetBool(isJumpingHash, playerController.isJumping);
     }
 
+    public void OnPickUp(InputValue value)
+    {
+        playerController.isPickingUp = value.isPressed;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Ground") && !playerController.isJumping) return;

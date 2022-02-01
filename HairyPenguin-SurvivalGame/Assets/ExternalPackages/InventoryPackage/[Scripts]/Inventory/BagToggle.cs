@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,12 @@ public class BagToggle : MonoBehaviour
 {
     private IEnumerator coroutine;
     private ItemSlotGridDimensioner grid;
-    
+
+
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
 
     private void OnEnable()
     {

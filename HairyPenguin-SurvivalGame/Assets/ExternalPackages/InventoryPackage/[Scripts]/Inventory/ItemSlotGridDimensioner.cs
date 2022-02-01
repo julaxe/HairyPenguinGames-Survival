@@ -11,24 +11,14 @@ public class ItemSlotGridDimensioner : MonoBehaviour
 
     private int rows;
     private int columns;
-    private Bag currentBag;
-
-    public enum TypeOfBag { Other, PlayerBag };
-
-    [SerializeField]
-    private TypeOfBag typeOfBag;
+    public Bag currentBag;
+    
 
     //connections with another bags.
     private void Start()
     {
         itemSlotPrefab = Resources.Load<GameObject>("Prefabs/ItemSlot");
         listSlots = new List<GameObject>();
-
-        if (typeOfBag == TypeOfBag.PlayerBag)
-        {
-            currentBag = GameObject.Find("PlayerCharacter").GetComponent<Bag>();
-            LoadBag();
-        }
     }
 
     public void SetCurrentBag(Bag bag)
