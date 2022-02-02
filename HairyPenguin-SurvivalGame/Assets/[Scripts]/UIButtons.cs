@@ -6,30 +6,55 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class UIButtons : MonoBehaviour
 {
-
+    public GameObject playCanvas;
+    public GameObject MainMenuCanvas;
+    public GameObject OptionsCanvas;
+    public GameObject CreditsCanvas;
+    public GameObject ControlsCanvas;
     public void OnPlayClicked()
     {
-        SceneManager.LoadScene("Showcase");
+        playCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
     }
-
     public void OnOptionsClicked()
     {
-        SceneManager.LoadScene("Options");
+        OptionsCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
     }
 
 
     public void OnCreditsClicked()
     {
-        SceneManager.LoadScene("Credits");
+        CreditsCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
+    }
+
+    public void OnControlsClicked()
+    {
+        ControlsCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
     }
 
     public void OnBackClicked()
     {
-        SceneManager.LoadScene("MainMenu");
+        OptionsCanvas.SetActive(false);
+        playCanvas.SetActive(false);
+        CreditsCanvas.SetActive(false);
+        ControlsCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(true);
     }
 
     public void OnExitClicked()
     {
         Application.Quit();
+    }
+    
+    public void OnNewGameClicked()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+    public void OnLoadGameClicked()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
