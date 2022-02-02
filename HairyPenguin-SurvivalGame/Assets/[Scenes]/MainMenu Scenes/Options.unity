@@ -889,6 +889,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5747ec63e532cbd49b92889e676b0ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playCanvas: {fileID: 0}
+  MainMenuCanvas: {fileID: 0}
+  OptionsCanvas: {fileID: 0}
+  CreditsCanvas: {fileID: 0}
+  ControlsCanvas: {fileID: 0}
 --- !u!114 &1562353019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,7 +1002,7 @@ GameObject:
   - component: {fileID: 1750452602}
   - component: {fileID: 1750452601}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: MenuSoundtrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1013,11 +1018,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 127d1c34d01016a4b8dcf4fe9c0d067c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: beaf667ff6fd27145b650ceaf56229b9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
