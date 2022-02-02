@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 161898341431933799}
   - component: {fileID: 5914846753400416206}
   - component: {fileID: 2163430022483716878}
+  - component: {fileID: 6205058545042968397}
   m_Layer: 0
   m_Name: Snake_angry
   m_TagString: Enemy
@@ -637,7 +638,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
-  health: 0
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   sightRange: 0
@@ -666,6 +666,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &6205058545042968397
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887360451857611687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4669338
+  m_Center: {x: 0, y: 1.58, z: 0.17}
 --- !u!1 &7052879624193433543
 GameObject:
   m_ObjectHideFlags: 0

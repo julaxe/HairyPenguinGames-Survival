@@ -774,6 +774,7 @@ GameObject:
   - component: {fileID: 1976122427847774569}
   - component: {fileID: 5372507699293011068}
   - component: {fileID: 7825600574974896356}
+  - component: {fileID: 5142385856674451473}
   m_Layer: 0
   m_Name: Wasp
   m_TagString: Enemy
@@ -837,7 +838,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
-  health: 0
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   sightRange: 0
@@ -866,6 +866,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &5142385856674451473
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100155710495330729}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.7848657
+  m_Center: {x: 0, y: 1.73, z: 0}
 --- !u!1 &5248858959544351587
 GameObject:
   m_ObjectHideFlags: 0

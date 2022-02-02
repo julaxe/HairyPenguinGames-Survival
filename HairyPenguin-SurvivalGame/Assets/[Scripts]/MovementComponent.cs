@@ -44,7 +44,7 @@ public class MovementComponent : MonoBehaviour
             moveDirection = Vector3.zero;
         } else 
         {
-            playerAnimator.Play("CharacterArmature|Run");
+            playerAnimator.Blend("CharacterArmature|Run", 1.0f);
         }
 
         moveDirection = transform.forward * inputVector.y + transform.right * inputVector.x;
@@ -72,13 +72,13 @@ public class MovementComponent : MonoBehaviour
 
         playerController.isJumping = value.isPressed;
         rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
-        playerAnimator.Play("CharacterArmature|Jump");
+        playerAnimator.Blend("CharacterArmature|Jump", 1.0f);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Ground") && !playerController.isJumping) return;
 
         playerController.isJumping = false;
-        playerAnimator.Play("CharacterArmature|Run");
+        playerAnimator.Blend("CharacterArmature|Run", 1.0f);
     }
 }

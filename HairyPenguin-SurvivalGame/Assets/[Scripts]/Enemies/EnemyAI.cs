@@ -5,12 +5,8 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
-
     public Transform player;
-
     public LayerMask whatIsGround, whatIsPlayer;
-
-    public float health;
 
     //Patroling
     public Vector3 walkPoint;
@@ -84,5 +80,15 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<AudioSource>().Play();
+            other.gameObject.GetComponent<Animation>().Blend("CharacterArmature|Punch", 3.0f);
+        }
     }
 }
