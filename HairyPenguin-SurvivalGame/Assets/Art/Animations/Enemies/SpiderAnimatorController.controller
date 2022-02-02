@@ -51,7 +51,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HumanArmature|Spider_Idle
+  m_Name: HumanArmature|Spider_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -2588139790639826423, guid: 0f504ebc829819f4e967fea0ce915755, type: 3}
+  m_Motion: {fileID: -4379751560359323988, guid: 0f504ebc829819f4e967fea0ce915755, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

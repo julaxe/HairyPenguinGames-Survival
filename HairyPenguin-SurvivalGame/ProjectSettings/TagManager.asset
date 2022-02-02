@@ -9,6 +9,7 @@ TagManager:
   - ContainerTrigger
   - Slot
   - ResourceNode
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - MiniMap
-  - 
+  - Player
   - 
   - 
   - 
