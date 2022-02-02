@@ -17,12 +17,12 @@ public class PickUpRadius : MonoBehaviour
     {
         if (_playerRef)
         {
-            if (_playerRef.GetComponent<PlayerController>().isPickingUp)
-            {
+            //if (_playerRef.GetComponent<PlayerController>().isPickingUp)
+            //{
                 _playerRef.GetComponent<Bag>().AddNewItemToTheBag(_pickUp.item);
                 Destroy(transform.parent.gameObject);
-            }
-            
+            //}
+
         }
     }
 

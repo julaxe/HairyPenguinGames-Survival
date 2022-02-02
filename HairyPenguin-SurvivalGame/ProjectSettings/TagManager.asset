@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - PickUp
+  - ContainerTrigger
+  - Slot
+  - ResourceNode
   layers:
   - Default
   - TransparentFX

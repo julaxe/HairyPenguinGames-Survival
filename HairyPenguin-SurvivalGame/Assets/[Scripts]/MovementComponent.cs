@@ -75,12 +75,6 @@ public class MovementComponent : MonoBehaviour
         rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
         // playerAnimator.SetBool(isJumpingHash, playerController.isJumping);
     }
-
-    public void OnPickUp(InputValue value)
-    {
-        playerController.isPickingUp = value.isPressed;
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Ground") && !playerController.isJumping) return;
