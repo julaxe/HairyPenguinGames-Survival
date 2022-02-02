@@ -72,7 +72,7 @@ public class MovementComponent : MonoBehaviour
 
         playerController.isJumping = value.isPressed;
         rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
-        playerAnimator.Blend("CharacterArmature|Jump", 1.0f);
+        playerAnimator.Play("CharacterArmature|Jump");
     }
     private void OnCollisionEnter(Collision collision)
     {
