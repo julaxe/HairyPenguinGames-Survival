@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputactions",
+    "name": "ElfInput",
     "maps": [
         {
             "name": "PlayerActionMap",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PickUp",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "aaf1bcac-3622-4cf8-9d76-309ec53fb933",
                     "expectedControlType": "Button",
@@ -122,8 +122,30 @@
                 },
                 {
                     "name": "",
+                    "id": "8328cb84-0e53-4eee-b66d-5429781a04c7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b693c7e8-cc6c-4418-99dc-3c73afee02ce",
                     "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ff932071-05df-4759-92e4-334d4702cb0c",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -138,7 +160,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PickUp",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3480eaaa-c369-4076-98ae-f35fd5632d5f",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool isJumping;
+    public bool isInAir;
     public bool isRunning;
     public bool isPickingUp;
 }

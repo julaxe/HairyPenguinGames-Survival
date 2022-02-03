@@ -17,6 +17,7 @@ public class MovementComponent : MonoBehaviour
     PlayerController playerController;
     Rigidbody rigidbody;
     Animation playerAnimator;
+    protected ElfInput playerInput;
 
     // movement references
     Vector2 inputVector = Vector2.zero;
@@ -27,6 +28,7 @@ public class MovementComponent : MonoBehaviour
         playerAnimator = GetComponent<Animation>();
         playerController = GetComponent<PlayerController>();
         rigidbody = GetComponent<Rigidbody>();
+        playerInput = new ElfInput();
     }
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,10 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerController.isJumping) return;
+
+        UpdateInput();
+
+        CheckJump();
         if (!(inputVector.magnitude > 0))
         {
             playerAnimator.Play("CharacterArmature|Idle");
@@ -47,7 +52,7 @@ public class MovementComponent : MonoBehaviour
             playerAnimator.Blend("CharacterArmature|Run", 1.0f);
         }
 
-        moveDirection = transform.forward * inputVector.y + transform.right * inputVector.x;
+        moveDirection = transform.forward * inputVector.y;
         float currentSpeed = playerController.isRunning ? runSpeed : walkSpeed;
 
         Vector3 movementDirection = moveDirection * (currentSpeed * Time.deltaTime);
@@ -56,29 +61,38 @@ public class MovementComponent : MonoBehaviour
 
     }
 
-    public void OnMovement(InputValue value)
+    private void UpdateInput()
     {
-        inputVector = value.Get<Vector2>();
+        inputVector = playerInput.PlayerActionMap.Movement.ReadValue<Vector2>();
+        playerController.isRunning = playerInput.PlayerActionMap.Run.IsPressed();
+        playerController.isJumping = playerInput.PlayerActionMap.Jump.IsPressed();
     }
 
-    public void OnRun(InputValue value)
+    private void CheckJump()
     {
-        playerController.isRunning = value.isPressed;
-    }
-
-    public void OnJump(InputValue value)
-    {
-        if (playerController.isJumping) return;
-
-        playerController.isJumping = value.isPressed;
+        if (playerController.isInAir) return ;
+        if (!playerController.isJumping) return ;
+        
+        //jump
         rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
+        playerController.isInAir = true;
         playerAnimator.Play("CharacterArmature|Jump");
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Ground") && !playerController.isJumping) return;
 
-        playerController.isJumping = false;
+        playerController.isInAir = false;
         playerAnimator.Blend("CharacterArmature|Run", 1.0f);
+    }
+    
+    private void OnEnable()
+    {
+        playerInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInput.Disable();
     }
 }
