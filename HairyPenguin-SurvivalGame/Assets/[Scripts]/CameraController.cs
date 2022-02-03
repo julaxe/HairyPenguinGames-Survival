@@ -5,25 +5,33 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    public float mouseSensitivity = 100.0f;
+    public float rotationSpeed = 100.0f;
     public Transform playerBody;
 
     private float mouseX = 0;
+    
+    protected ElfInput playerInput;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        playerInput = new ElfInput();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerBody.Rotate(Vector3.up * mouseSensitivity * mouseX);
+        mouseX = playerInput.PlayerActionMap.Movement.ReadValue<Vector2>().x;
+        playerBody.Rotate(Vector3.up * rotationSpeed * mouseX);
+    }
+    
+    private void OnEnable()
+    {
+        playerInput.Enable();
     }
 
-    public void OnCameraMovement(InputValue val)
+    private void OnDisable()
     {
-        mouseX = val.Get<float>();
+        playerInput.Disable();
     }
 }
