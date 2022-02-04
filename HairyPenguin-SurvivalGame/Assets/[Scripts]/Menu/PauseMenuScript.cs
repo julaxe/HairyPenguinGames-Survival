@@ -43,4 +43,9 @@ public class PauseMenuScript : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
     }
+    public void Retry()
+    {
+        
+        SceneManager.LoadScene("SampleScene");
+    }
 }
