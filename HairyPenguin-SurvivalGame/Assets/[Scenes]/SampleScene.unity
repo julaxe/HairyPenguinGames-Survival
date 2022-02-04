@@ -556,6 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b26ebfb8715ca4e88778da9b467a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _MaxHealth: 100
 --- !u!195 &350419738 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 770515384006550, guid: e7aa0b4518b34034b930b180b86af450, type: 3}

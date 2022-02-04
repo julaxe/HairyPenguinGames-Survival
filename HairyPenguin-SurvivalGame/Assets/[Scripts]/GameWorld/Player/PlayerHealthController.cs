@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PlayerHealthController : MonoBehaviour
 {
     private float _CurrentHealth;
-    private float _MaxHealth;
+    [SerializeField] private float _MaxHealth;
     private Slider _UIHealthBar;
     // Start is called before the first frame update
     void Start()
