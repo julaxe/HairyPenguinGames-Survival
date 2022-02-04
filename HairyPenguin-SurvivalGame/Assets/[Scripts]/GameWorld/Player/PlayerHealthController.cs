@@ -7,6 +7,7 @@ public class PlayerHealthController : MonoBehaviour
     private float _CurrentHealth;
     [SerializeField] private float _MaxHealth;
     private Slider _UIHealthBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,10 @@ public class PlayerHealthController : MonoBehaviour
             _CurrentHealth = 0;
         }
         _UIHealthBar.value = _CurrentHealth;
+    }
 
+    public float getCurrentHealth()
+    {
+        return _CurrentHealth;
     }
 }
