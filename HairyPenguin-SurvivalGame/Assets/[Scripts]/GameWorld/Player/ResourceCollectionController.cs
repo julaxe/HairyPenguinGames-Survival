@@ -12,6 +12,7 @@ public class ResourceCollectionController : MonoBehaviour
     public GameObject currentResourceToCollect;
     public GenerateItem pickUpResource;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +22,17 @@ public class ResourceCollectionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerController.isPickingUp && canCollect)
-        {
-            //Add timer
-            //Connect to inventory
-            //Inventory Full
-            canCollect = false;
-            pickUpResource = currentResourceToCollect.GetComponent<ResourceInfo>().collectingResource(hasMiningPick, hasAxe);
-            Destroy(currentResourceToCollect);
-        }
+        if (!playerController.isPickingUp) return;
+            
+        if (!canCollect) return;
+       
+        //Add timer
+        //Connect to inventory
+        //Inventory Full
+        canCollect = false;
+        pickUpResource = currentResourceToCollect.GetComponent<ResourceInfo>().collectingResource(hasMiningPick, hasAxe);
+        Destroy(currentResourceToCollect);
+        
 
     }
 
@@ -49,9 +52,4 @@ public class ResourceCollectionController : MonoBehaviour
             currentResourceToCollect = null;
         }
     }
-    public void OnPickUp(InputValue value)
-    {
-        playerController.isPickingUp = value.isPressed;
-    }
-
 }

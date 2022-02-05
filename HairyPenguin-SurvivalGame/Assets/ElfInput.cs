@@ -60,7 +60,7 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
                     ""id"": ""aaf1bcac-3622-4cf8-9d76-309ec53fb933"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],

@@ -66,6 +66,7 @@ public class MovementComponent : MonoBehaviour
         inputVector = playerInput.PlayerActionMap.Movement.ReadValue<Vector2>();
         playerController.isRunning = playerInput.PlayerActionMap.Run.IsPressed();
         playerController.isJumping = playerInput.PlayerActionMap.Jump.IsPressed();
+        playerController.isPickingUp = playerInput.PlayerActionMap.Interact.IsPressed();
     }
 
     private void CheckJump()

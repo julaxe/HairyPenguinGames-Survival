@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/[Scenes]/MainMenu Scenes/Credits.unity
     guid: 339af65d746566349995b1473330c814
   - enabled: 1
-    path: Assets/[Scenes]/SampleScene.unity
+    path: Assets/[Scenes]/Level 01.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/[Scenes]/Showcase.unity

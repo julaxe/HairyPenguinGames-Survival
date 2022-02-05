@@ -10,19 +10,6 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject pauseMenuToggle;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Resume()
     {
         pauseMenuToggle.SetActive(true);
