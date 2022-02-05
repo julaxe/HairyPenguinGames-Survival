@@ -17,6 +17,7 @@ public class Hazard : MonoBehaviour
         {
             other.gameObject.GetComponent<AudioSource>().Play();
             other.gameObject.GetComponent<Animation>().Blend("CharacterArmature|Punch", 3.0f);
+            other.GetComponent<PlayerHealthController>().setHealth(-10);
         }
         _timer += Time.fixedDeltaTime;
         if (_timer >= cdTick) _timer = 0.0f;
