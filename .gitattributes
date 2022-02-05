@@ -1,3 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 HairyPenguin-SurvivalGame/Assets/Sound/*.wav filter=lfs diff=lfs merge=lfs -text
+HairyPenguin-SurvivalGame/Assets/Sound/button_click.mp3 filter=lfs diff=lfs merge=lfs -text
+HairyPenguin-SurvivalGame/Assets/Sound/game-over-sound-effect.mp3 filter=lfs diff=lfs merge=lfs -text
