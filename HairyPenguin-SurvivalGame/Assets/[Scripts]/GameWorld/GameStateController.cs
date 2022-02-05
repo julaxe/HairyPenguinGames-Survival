@@ -13,8 +13,8 @@ public class GameStateController : MonoBehaviour
     void Start()
     {
         _player = GameObject.Find("Elf");
-        _deathAudio = GameObject.Find("GameOverSoundtrack").GetComponent<AudioSource>();
         _playerHealth = _player.GetComponent<PlayerHealthController>();
+        _deathAudio = GameObject.Find("GameOverSoundtrack").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
