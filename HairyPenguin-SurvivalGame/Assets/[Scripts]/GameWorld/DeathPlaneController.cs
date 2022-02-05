@@ -25,6 +25,7 @@ public class DeathPlaneController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        StartCoroutine(_GameController.deathState());
+        if(collision.gameObject.CompareTag("Player"))
+            StartCoroutine(_GameController.deathState(0));
     }
 }

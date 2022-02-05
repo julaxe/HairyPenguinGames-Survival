@@ -6,12 +6,24 @@ using UnityEngine;
 public class CollapsingPlatform : MonoBehaviour
 {
     public float secondsToCollapse;
+    public float secondsToRespawn;
+    public GameObject platform;
 
     public IEnumerator WaitAFewSecondsAndCollapse()
     {
         yield return new WaitForSeconds(secondsToCollapse);
-        
-        Destroy(this.gameObject);
+
+        platform.gameObject.SetActive(false);
+
+        StartCoroutine(Respawn());
+        //Destroy(this.gameObject);
+    }
+
+    public IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(secondsToRespawn);
+
+        platform.gameObject.SetActive(true);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -26,6 +38,16 @@ public class CollapsingPlatform : MonoBehaviour
                 StartCoroutine(WaitAFewSecondsAndCollapse());
             }
             
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("collision with collapsing platform");
+            StartCoroutine(WaitAFewSecondsAndCollapse());
         }
     }
 }

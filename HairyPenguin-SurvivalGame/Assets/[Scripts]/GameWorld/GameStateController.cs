@@ -20,15 +20,16 @@ public class GameStateController : MonoBehaviour
     {
         if (_playerHealth.getCurrentHealth() <= 0)
         {
-            deathState();
+            deathState(0);
         }
     }
 
-    public IEnumerator deathState()
+    public IEnumerator deathState(float sec)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(sec);
         _player.transform.position = _currentSpawnPoint.transform.position;
     }
+    
     public void updateCurrentSpawnPoint(Vector3 position)
     {
         _currentSpawnPoint.position = position;

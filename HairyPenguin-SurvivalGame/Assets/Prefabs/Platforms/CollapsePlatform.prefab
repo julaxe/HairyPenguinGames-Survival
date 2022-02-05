@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsToCollapse: 1
+  secondsToRespawn: 0
 --- !u!64 &2676124254819239553
 MeshCollider:
   m_ObjectHideFlags: 0
