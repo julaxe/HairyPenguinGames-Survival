@@ -17,6 +17,7 @@ public class RollingBoulder : Hazard
         if (!other.gameObject.CompareTag("Player")) return;
         if (rb.velocity.magnitude < minimumVelForCollision) return;
         other.gameObject.GetComponent<AudioSource>().Play();
+        other.gameObject.GetComponent<PlayerHealthController>().setHealth(-100);
         other.gameObject.GetComponent<Animation>().Blend("CharacterArmature|Punch", 3.0f);
     }
 }

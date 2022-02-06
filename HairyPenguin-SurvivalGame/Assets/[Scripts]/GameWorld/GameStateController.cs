@@ -23,7 +23,7 @@ public class GameStateController : MonoBehaviour
         if (_playerHealth.getCurrentHealth() <= 0)
         {
             _playerHealth.setHealth(100);
-            StartCoroutine(deathState(0.5f));
+            StartCoroutine(deathState(0.0f));
         }
     }
 
