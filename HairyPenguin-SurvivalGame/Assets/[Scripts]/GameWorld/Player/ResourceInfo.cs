@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ResourceInfo : MonoBehaviour
 {
     public TypesOfResourceNodes resourceType;
@@ -54,7 +54,7 @@ public class ResourceInfo : MonoBehaviour
             default:
                 break;
         }
-        
+        SceneManager.LoadScene("Credits");
         return temp;
     }
     public enum TypesOfResourceNodes
