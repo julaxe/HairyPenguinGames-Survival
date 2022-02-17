@@ -11,7 +11,6 @@ public class BagToggle : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
     }
 
     private void OnEnable()
