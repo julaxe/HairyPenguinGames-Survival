@@ -17,6 +17,11 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    //Attacking
+    public float timeBetweenAttacks;
+    bool alreadyAttacked;
+    public GameObject projectile;
+
     private void Awake()
     {
         player = GameObject.Find("Elf").transform;
@@ -70,8 +75,27 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
+        if (!projectile.gameObject)
+        {
+            return;
+        }
 
         // Attack the player
+        if (!alreadyAttacked)
+        {
+            ///Attack code here
+            Rigidbody rb = Instantiate(projectile, transform.position + new Vector3(0f, 0.2f, 0f), Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 16f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+            ///End of attack code
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+    private void ResetAttack()
+    {
+        alreadyAttacked = false;
     }
 
     private void OnDrawGizmosSelected()
