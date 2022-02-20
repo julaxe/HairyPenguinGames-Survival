@@ -51,10 +51,10 @@ public class UIButtons : MonoBehaviour
     
     public void OnNewGameClicked()
     {
-        SceneManager.LoadScene("Level 01");
+        SceneManager.LoadScene("MainLevel");
     }
     public void OnLoadGameClicked()
     {
-        SceneManager.LoadScene("Level 01");
+        SceneManager.LoadScene("MainLevel");
     }
 }
