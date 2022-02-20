@@ -54,7 +54,6 @@ public class ResourceInfo : MonoBehaviour
             default:
                 break;
         }
-        SceneManager.LoadScene("Credits");
         return temp;
     }
     public enum TypesOfResourceNodes

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameStateController : MonoBehaviour
     private GameObject _player;
     private AudioSource _deathAudio;
     private PlayerHealthController _playerHealth;
+    private int numberOfBoatParts;
+    [SerializeField] private int numberOfPartInLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +18,9 @@ public class GameStateController : MonoBehaviour
         _player = GameObject.Find("Elf");
         _playerHealth = _player.GetComponent<PlayerHealthController>();
         _deathAudio = GameObject.Find("GameOverSoundtrack").GetComponent<AudioSource>();
+        //Fix Loading/Saving
+        numberOfBoatParts = 0;
+
     }
 
     // Update is called once per frame
@@ -38,4 +44,15 @@ public class GameStateController : MonoBehaviour
     {
         _currentSpawnPoint.position = position;
     }
+
+    public void addedBoatPart()
+    {
+        numberOfBoatParts++;
+        if (numberOfBoatParts == numberOfPartInLevel)
+        {
+            SceneManager.LoadScene("Credits");
+        }
+    }
+
+
 }
