@@ -1009,6 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentSpawnPoint: {fileID: 710107216}
+  numberOfPartInLevel: 0
 --- !u!4 &772173333
 Transform:
   m_ObjectHideFlags: 0
@@ -2821,34 +2822,6 @@ PrefabInstance:
     - target: {fileID: 3250443109224750150, guid: 5302803877662a946801c5b68e4310be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262346703564021968, guid: 5302803877662a946801c5b68e4310be, type: 3}
-      propertyPath: m_ReceiveGI
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262346703564021968, guid: 5302803877662a946801c5b68e4310be, type: 3}
-      propertyPath: m_CastShadows
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262346703564021968, guid: 5302803877662a946801c5b68e4310be, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262346703564021968, guid: 5302803877662a946801c5b68e4310be, type: 3}
-      propertyPath: m_ScaleInLightmap
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3262346703564021968, guid: 5302803877662a946801c5b68e4310be, type: 3}
-      propertyPath: m_ReflectionProbeUsage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804526717593875777, guid: 5302803877662a946801c5b68e4310be, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804526717593875777, guid: 5302803877662a946801c5b68e4310be, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.89
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5302803877662a946801c5b68e4310be, type: 3}
