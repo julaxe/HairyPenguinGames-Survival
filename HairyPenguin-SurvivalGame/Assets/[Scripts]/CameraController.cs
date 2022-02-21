@@ -21,8 +21,11 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouseX = playerInput.PlayerActionMap.Movement.ReadValue<Vector2>().x;
-        playerBody.Rotate(Vector3.up * rotationSpeed * mouseX);
+        if (!PauseMenuScript.isGamePaused)
+        {
+            mouseX = playerInput.PlayerActionMap.Movement.ReadValue<Vector2>().x;
+            playerBody.Rotate(Vector3.up * rotationSpeed * mouseX);
+        }
     }
     
     private void OnEnable()

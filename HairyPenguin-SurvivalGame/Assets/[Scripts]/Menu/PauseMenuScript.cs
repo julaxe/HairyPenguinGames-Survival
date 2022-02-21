@@ -9,13 +9,14 @@ public class PauseMenuScript : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject pauseMenuToggle;
-
+  
     public void Resume()
     {
         pauseMenuToggle.SetActive(true);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
         isGamePaused = false;
+     
     }
     public void Pause()
     {

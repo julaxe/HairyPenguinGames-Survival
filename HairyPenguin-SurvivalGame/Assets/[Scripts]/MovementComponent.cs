@@ -23,6 +23,8 @@ public class MovementComponent : MonoBehaviour
     Vector2 inputVector = Vector2.zero;
     Vector3 moveDirection = Vector3.zero;
 
+
+
     private void Awake()
     {
         playerAnimator = GetComponent<Animation>();
@@ -39,9 +41,8 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         UpdateInput();
-
         CheckJump();
         if (!(inputVector.magnitude > 0))
         {
