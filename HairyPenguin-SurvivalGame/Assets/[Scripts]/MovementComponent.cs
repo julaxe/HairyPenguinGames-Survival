@@ -12,6 +12,8 @@ public class MovementComponent : MonoBehaviour
     float runSpeed = 10;
     [SerializeField]
     float jumpForce = 5;
+    [SerializeField]
+    float airControl = 0.5f;
 
     //components
     PlayerController playerController;
@@ -58,6 +60,10 @@ public class MovementComponent : MonoBehaviour
 
         Vector3 movementDirection = moveDirection * (currentSpeed * Time.deltaTime);
 
+        if (playerController.isInAir){
+
+             movementDirection = moveDirection* airControl * (currentSpeed * Time.deltaTime);
+        }
         transform.position += movementDirection;
 
     }
