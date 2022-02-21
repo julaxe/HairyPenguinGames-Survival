@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1273989723775428
+--- !u!1 &1857530850387342
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4460570613689154}
-  - component: {fileID: 33714044522122834}
-  - component: {fileID: 23812025541706940}
-  - component: {fileID: 64378325108888968}
+  - component: {fileID: 4749015049691358}
+  - component: {fileID: 33729853666294746}
+  - component: {fileID: 23273958606597430}
+  - component: {fileID: 64468546242547418}
+  - component: {fileID: 4121241223653932321}
+  - component: {fileID: 1585682625794510}
   m_Layer: 0
-  m_Name: Palm
-  m_TagString: Untagged
+  m_Name: Iron Ore
+  m_TagString: ResourceNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4460570613689154
+--- !u!4 &4749015049691358
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273989723775428}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.314726, y: -0.53003407, z: -20.336086}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1857530850387342}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 9.37, y: -0.2, z: 8.65}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &33714044522122834
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!33 &33729853666294746
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273989723775428}
-  m_Mesh: {fileID: 4300000, guid: b47757fa88386224b9931e7da19ea4a8, type: 3}
---- !u!23 &23812025541706940
+  m_GameObject: {fileID: 1857530850387342}
+  m_Mesh: {fileID: 4300000, guid: 8f60ecfaa81b09841bb57af6b4e05302, type: 3}
+--- !u!23 &23273958606597430
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273989723775428}
+  m_GameObject: {fileID: 1857530850387342}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b47757fa88386224b9931e7da19ea4a8, type: 3}
+  - {fileID: 2100000, guid: 8f60ecfaa81b09841bb57af6b4e05302, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,17 +86,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64378325108888968
+--- !u!64 &64468546242547418
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273989723775428}
+  m_GameObject: {fileID: 1857530850387342}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: b47757fa88386224b9931e7da19ea4a8, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 8f60ecfaa81b09841bb57af6b4e05302, type: 3}
+--- !u!135 &4121241223653932321
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857530850387342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.04561
+  m_Center: {x: 0.267025, y: 0, z: 1.536036}
+--- !u!114 &1585682625794510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857530850387342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e767a348b6851428fd0829639e00c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: 1
+  listofPickUps:
+  - Template: {fileID: 11400000, guid: 9fbe55a6bdc62224fa691d52dbdee449, type: 2}
+    Count: 2
