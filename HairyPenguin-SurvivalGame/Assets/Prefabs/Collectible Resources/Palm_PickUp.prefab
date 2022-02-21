@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 4460570613689154}
   - component: {fileID: 33714044522122834}
   - component: {fileID: 23812025541706940}
-  - component: {fileID: 64378325108888968}
   - component: {fileID: -8900309581124518411}
   - component: {fileID: -240916611539767310}
   m_Layer: 0
-  m_Name: Palm
+  m_Name: Palm_PickUp
   m_TagString: ResourceNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64378325108888968
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273989723775428}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: b47757fa88386224b9931e7da19ea4a8, type: 3}
 --- !u!114 &-8900309581124518411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e767a348b6851428fd0829639e00c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: 2
+  resourceType: 0
   listofPickUps:
   - Template: {fileID: 11400000, guid: fff3d9b3881d0b2499c7efea06437594, type: 2}
     Count: 1
@@ -126,8 +111,8 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273989723775428}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.0576642
-  m_Center: {x: -0.082686424, y: 0.75427794, z: 1.536036}
+  m_Radius: 0.964535
+  m_Center: {x: -0.082686424, y: 0.85216856, z: -0.20389366}

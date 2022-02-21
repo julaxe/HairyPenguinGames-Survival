@@ -22,7 +22,8 @@ public class DayNightCycle : MonoBehaviour
 
     void Start()
     {
-        
+        RenderSettings.skybox = daySkybox;
+        directionalLight.intensity = dayLightIntensity;
     }
 
     // Update is called once per frame

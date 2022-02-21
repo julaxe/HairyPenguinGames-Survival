@@ -36,20 +36,33 @@ public class ResourceCollectionController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("ResourceNode"))
+
+        if (collision.gameObject.CompareTag("ResourceNode"))
         {
             canCollect = true;
-            currentResourceToCollect = other.gameObject;
+            currentResourceToCollect = collision.gameObject;
+            Destroy(collision.gameObject);
         }
+
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("ResourceNode"))
-        {
-            canCollect = false;
-            currentResourceToCollect = null;
-        }
-    }
+
+ 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("ResourceNode"))
+    //    {
+    //        canCollect = true;
+    //        currentResourceToCollect = other.gameObject;
+    //    }
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("ResourceNode"))
+    //    {
+    //        canCollect = false;
+    //        currentResourceToCollect = null;
+    //    }
+    //}
 }
