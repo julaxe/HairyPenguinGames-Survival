@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Sword
   description: Great for slicing watermelons and pumpkins
   icon: {fileID: 8097262859823219351, guid: 0657a0b2892d4cf49b09e2fec63a8531, type: 3}
-  isConsumable: 0
+  isConsumable: 1
   columns: 1
   rows: 1

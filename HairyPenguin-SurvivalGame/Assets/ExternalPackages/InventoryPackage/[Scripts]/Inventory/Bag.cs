@@ -34,6 +34,7 @@ public class Bag : MonoBehaviour
     public int columns = 5;
     public List<GenerateItem> initialItems;
 
+    private bool bagIsActive;
     void Start()
     {
         listOfItems = new List<GameObject>();
@@ -80,15 +81,15 @@ public class Bag : MonoBehaviour
         GameObject item = Instantiate(itemPrefab, ItemsLocation);
         item.GetComponent<Item>().ItemTemplate = template.Template;
         item.GetComponent<Item>().ItemCount = template.Count;
-        item.SetActive(false);
         AddAnItemToTheBagViaCode(item);
+        item.SetActive(bagIsActive);
     }
     private void AddNoConsumable(GenerateItem template)
     {
         GameObject item = Instantiate(itemPrefab, ItemsLocation);
         item.GetComponent<Item>().ItemTemplate = template.Template;
-        item.SetActive(false);
         AddAnItemToTheBagViaCode(item);
+        item.SetActive(bagIsActive);
     }
 
     public void HideItems()
@@ -97,6 +98,8 @@ public class Bag : MonoBehaviour
         {
             item.SetActive(false);
         }
+
+        bagIsActive = false;
     }
 
     public void ShowItems()
@@ -105,6 +108,8 @@ public class Bag : MonoBehaviour
         {
             item.SetActive(true);
         }
+
+        bagIsActive = true;
     }
 
     private void AddAnItemToTheBagViaCode(GameObject item)
@@ -167,7 +172,7 @@ public class Bag : MonoBehaviour
             Destroy(item);
         }
     }
-    public void AddNewItemInFreeSpace(GameObject item, SlotNode root)
+    private void AddNewItemInFreeSpace(GameObject item, SlotNode root)
     {
         //add the item to the slots
         int currentRow = root.row;

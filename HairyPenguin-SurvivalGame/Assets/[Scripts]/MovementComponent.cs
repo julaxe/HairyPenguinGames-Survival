@@ -42,6 +42,7 @@ public class MovementComponent : MonoBehaviour
     void Start()
     {
         playerAnimator.Play("CharacterArmature|Idle");
+        playerInput.PlayerActionMap.Jump.started += JumpPressed;
     }
 
     // Update is called once per frame
@@ -75,6 +76,9 @@ public class MovementComponent : MonoBehaviour
         playerController.isRunning = playerInput.PlayerActionMap.Run.IsPressed();
         playerController.isJumping = playerInput.PlayerActionMap.Jump.IsPressed();
         playerController.isPickingUp = playerInput.PlayerActionMap.Interact.IsPressed();
+        playerController.isPaused = playerInput.PlayerActionMap.Pause.IsPressed();
+        playerController.isOpeningBag = playerInput.PlayerActionMap.Bag.IsPressed();
+        playerController.isOpeningMap = playerInput.PlayerActionMap.Map.IsPressed();
     }
 
     private void CheckJump()
@@ -106,4 +110,10 @@ public class MovementComponent : MonoBehaviour
     {
         playerInput.Disable();
     }
+
+    private void JumpPressed(InputAction.CallbackContext context)
+    {
+        Debug.Log("jump");
+    }
+    
 }

@@ -629,6 +629,9 @@ MonoBehaviour:
   isInAir: 0
   isRunning: 0
   isPickingUp: 0
+  isOpeningBag: 0
+  isOpeningMap: 0
+  isPaused: 0
 --- !u!114 &263521156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +647,7 @@ MonoBehaviour:
   walkSpeed: 5
   runSpeed: 10
   jumpForce: 5
+  airControl: 0.5
 --- !u!114 &263521163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,13 +678,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02876cddd66d7c04fb7feff565a00075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasMiningPick: 0
+  hasMiningPick: 1
   hasAxe: 0
   canCollect: 0
   currentResourceToCollect: {fileID: 0}
   pickUpResource:
     Template: {fileID: 0}
     Count: 0
+  grid: {fileID: 0}
 --- !u!114 &263521168
 MonoBehaviour:
   m_ObjectHideFlags: 0

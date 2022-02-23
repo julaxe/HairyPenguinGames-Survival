@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Iron
   description: Used as crafting material
   icon: {fileID: 21300000, guid: b78f2f7fb732d5b45ab8184057a4a65b, type: 3}
-  isConsumable: 0
+  isConsumable: 1
   columns: 1
   rows: 1

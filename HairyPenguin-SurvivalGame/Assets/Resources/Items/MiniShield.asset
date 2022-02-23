@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: MiniShield
   description: Shield that is mini
-  amount: 1
   icon: {fileID: 2821187120118760139, guid: 0657a0b2892d4cf49b09e2fec63a8531, type: 3}
-  isConsumable: 0
+  isConsumable: 1
   columns: 1
   rows: 1

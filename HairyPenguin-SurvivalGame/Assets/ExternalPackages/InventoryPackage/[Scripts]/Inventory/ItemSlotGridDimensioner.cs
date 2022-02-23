@@ -31,7 +31,12 @@ public class ItemSlotGridDimensioner : MonoBehaviour
         ClearSlots();
         
         ReSizeGrid(currentBag.columns, currentBag.rows);
-        
+
+        currentBag.ShowItems();
+    }
+
+    public void UpdateBag()
+    {
         foreach (GameObject item in currentBag.listOfItems)
         {
             //for each item we are going to update the slots and the slotInUse for the item
@@ -41,9 +46,9 @@ public class ItemSlotGridDimensioner : MonoBehaviour
                 gridSlots[node.column, node.row].GetComponent<Slot>().Item = item.GetComponent<Item>();
                 newSlotsInUse.Add(gridSlots[node.column, node.row].GetComponent<Slot>());
             }
+            //update position for item
             item.GetComponent<Item>().SetSlotsInUse(newSlotsInUse);
         }
-        currentBag.ShowItems();
     }
     public void UnLoadBag()
     {

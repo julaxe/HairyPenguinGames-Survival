@@ -62,6 +62,33 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""78a7a18b-48b7-4932-b3e8-96eb76cc7c59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""310025c6-7dc2-4eeb-930e-d636e91baf50"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Bag"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf217108-6b1c-43a3-83a9-0555642a07dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -196,6 +223,39 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e2d3921-0023-43ef-8cda-6bce29ca360f"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f759d0f3-afb7-490f-958b-b7385899f313"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0bda808-efe7-4c45-834e-7490a2ac6e4e"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -236,6 +296,9 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
         m_PlayerActionMap_Jump = m_PlayerActionMap.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActionMap_Run = m_PlayerActionMap.FindAction("Run", throwIfNotFound: true);
         m_PlayerActionMap_Interact = m_PlayerActionMap.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerActionMap_Pause = m_PlayerActionMap.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerActionMap_Map = m_PlayerActionMap.FindAction("Map", throwIfNotFound: true);
+        m_PlayerActionMap_Bag = m_PlayerActionMap.FindAction("Bag", throwIfNotFound: true);
         // CameraActionMap
         m_CameraActionMap = asset.FindActionMap("CameraActionMap", throwIfNotFound: true);
         m_CameraActionMap_CameraMovement = m_CameraActionMap.FindAction("CameraMovement", throwIfNotFound: true);
@@ -302,6 +365,9 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionMap_Jump;
     private readonly InputAction m_PlayerActionMap_Run;
     private readonly InputAction m_PlayerActionMap_Interact;
+    private readonly InputAction m_PlayerActionMap_Pause;
+    private readonly InputAction m_PlayerActionMap_Map;
+    private readonly InputAction m_PlayerActionMap_Bag;
     public struct PlayerActionMapActions
     {
         private @ElfInput m_Wrapper;
@@ -310,6 +376,9 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerActionMap_Jump;
         public InputAction @Run => m_Wrapper.m_PlayerActionMap_Run;
         public InputAction @Interact => m_Wrapper.m_PlayerActionMap_Interact;
+        public InputAction @Pause => m_Wrapper.m_PlayerActionMap_Pause;
+        public InputAction @Map => m_Wrapper.m_PlayerActionMap_Map;
+        public InputAction @Bag => m_Wrapper.m_PlayerActionMap_Bag;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -331,6 +400,15 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnInteract;
+                @Pause.started -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnPause;
+                @Map.started -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnMap;
+                @Bag.started -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnBag;
+                @Bag.performed -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnBag;
+                @Bag.canceled -= m_Wrapper.m_PlayerActionMapActionsCallbackInterface.OnBag;
             }
             m_Wrapper.m_PlayerActionMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -347,6 +425,15 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
+                @Bag.started += instance.OnBag;
+                @Bag.performed += instance.OnBag;
+                @Bag.canceled += instance.OnBag;
             }
         }
     }
@@ -390,6 +477,9 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
+        void OnBag(InputAction.CallbackContext context);
     }
     public interface ICameraActionMapActions
     {

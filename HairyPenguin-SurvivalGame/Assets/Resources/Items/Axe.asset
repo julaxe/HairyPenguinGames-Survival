@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Axe
   description: Tool
   icon: {fileID: 21300000, guid: 023d7316b8445e64ba8210e6f576194b, type: 3}
-  isConsumable: 0
+  isConsumable: 1
   columns: 1
   rows: 1

@@ -15,6 +15,6 @@ MonoBehaviour:
   name: MiningPick
   description: Tool
   icon: {fileID: 21300000, guid: 31ab03ac0b4a2d149b549d8fe226d6ee, type: 3}
-  isConsumable: 0
+  isConsumable: 1
   columns: 1
   rows: 1

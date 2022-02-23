@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BagToggle : MonoBehaviour
@@ -15,14 +16,15 @@ public class BagToggle : MonoBehaviour
 
     private void OnEnable()
     {
-        coroutine = WaitAndLoad(0.01f); // wait a little bit so we can get the grid loaded
+        coroutine = WaitAndLoad(); // wait a little bit so we can get the grid loaded
         grid = gameObject.GetComponentInParent<ItemSlotGridDimensioner>();
         StartCoroutine(coroutine);
     }
-    private IEnumerator WaitAndLoad(float waitTime)
+    private IEnumerator WaitAndLoad()
     {
-        yield return new WaitForSeconds(waitTime);
         grid.LoadBag();
+        yield return new WaitForSeconds(0.1f);
+        grid.UpdateBag();
     }
     private void OnDisable()
     {

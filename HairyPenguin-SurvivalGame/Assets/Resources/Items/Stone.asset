@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Stone
   description: Used as crafting material
   icon: {fileID: 21300000, guid: 6151f3dfa9e682348b8b4961fe9e0edd, type: 3}
-  isConsumable: 0
+  isConsumable: 1
   columns: 1
   rows: 1

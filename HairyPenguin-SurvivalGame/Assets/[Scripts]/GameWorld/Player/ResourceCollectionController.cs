@@ -12,11 +12,15 @@ public class ResourceCollectionController : MonoBehaviour
     public GameObject currentResourceToCollect;
     public GenerateItem pickUpResource;
 
+    private Bag _bag;
+
+    public ItemSlotGridDimensioner grid;
     
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<PlayerController>();
+        _bag = GetComponent<Bag>();
     }
 
     // Update is called once per frame
@@ -31,7 +35,8 @@ public class ResourceCollectionController : MonoBehaviour
         //Inventory Full
         canCollect = false;
         pickUpResource = currentResourceToCollect.GetComponent<ResourceInfo>().collectingResource(hasMiningPick, hasAxe); 
-
+        _bag.AddNewItemToTheBag(pickUpResource);
+        grid.UpdateBag();
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Plank
   description: Used as crafting material
   icon: {fileID: 21300000, guid: d4c99fe7e0e67dd4e8cca35455cdd2cb, type: 3}
-  isConsumable: 0
+  isConsumable: 1
   columns: 1
   rows: 1

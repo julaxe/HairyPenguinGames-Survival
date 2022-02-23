@@ -8,4 +8,7 @@ public class PlayerController : MonoBehaviour
     public bool isInAir;
     public bool isRunning;
     public bool isPickingUp;
+    public bool isOpeningBag;
+    public bool isOpeningMap;
+    public bool isPaused;
 }
