@@ -113,6 +113,9 @@ public class EnemyAI : MonoBehaviour
         {
             other.gameObject.GetComponent<AudioSource>().Play();
             other.gameObject.GetComponent<Animation>().Blend("CharacterArmature|Punch", 3.0f);
+            
+            //do damage to player
+            other.gameObject.GetComponent<PlayerHealthController>().setHealth(-10);
         }
     }
 }
