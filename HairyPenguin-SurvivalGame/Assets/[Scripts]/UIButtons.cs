@@ -11,6 +11,7 @@ public class UIButtons : MonoBehaviour
     public GameObject OptionsCanvas;
     public GameObject CreditsCanvas;
     public GameObject ControlsCanvas;
+    public GameObject HowToPlayCanvas;
     public void OnPlayClicked()
     {
         playCanvas.SetActive(true);
@@ -34,6 +35,11 @@ public class UIButtons : MonoBehaviour
         ControlsCanvas.SetActive(true);
         MainMenuCanvas.SetActive(false);
     }
+    public void OnHowToPlayClicked()
+    {
+        HowToPlayCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
+    }
 
     public void OnBackClicked()
     {
@@ -41,6 +47,7 @@ public class UIButtons : MonoBehaviour
         playCanvas.SetActive(false);
         CreditsCanvas.SetActive(false);
         ControlsCanvas.SetActive(false);
+        HowToPlayCanvas.SetActive(false);
         MainMenuCanvas.SetActive(true);
     }
 

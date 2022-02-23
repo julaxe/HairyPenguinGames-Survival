@@ -100,7 +100,7 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""45c18907-c852-454d-b2a2-d499a76a42a4"",
+                    ""id"": ""435b9397-4567-4658-81bb-dc27010616fc"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -111,7 +111,7 @@ public partial class @ElfInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""f9fcf827-7f62-41eb-b3b7-b58043478437"",
+                    ""id"": ""66645796-676f-43e0-987b-418a4aa04832"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
