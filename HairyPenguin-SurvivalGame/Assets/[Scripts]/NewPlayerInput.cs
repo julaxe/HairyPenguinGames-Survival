@@ -25,12 +25,16 @@ public class NewPlayerInput : MonoBehaviour
     Rigidbody rigidbody;
     Animation playerAnimator;
    
-    PlayerInput playerInput;
+    public ElfInput playerInput;
     // movement references
     Vector2 inputVector = Vector2.zero;
     Vector3 moveDirection = Vector3.zero;
     float playerRotation;
 
+    [Header("UI buttons")]
+    public GameObject mapUI;
+    public GameObject bagUI;
+    public PauseMenuScript pauseUI;
 
 
     private void Awake()
@@ -38,13 +42,15 @@ public class NewPlayerInput : MonoBehaviour
         playerAnimator = GetComponent<Animation>();
         playerController = GetComponent<PlayerController>();
         rigidbody = GetComponent<Rigidbody>();
-       
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = new ElfInput();
     }
     // Start is called before the first frame update
     void Start()
     {
         playerAnimator.Play("CharacterArmature|Idle");
+        playerInput.PlayerActionMap.Pause.started += PausedPressed;
+        playerInput.PlayerActionMap.Map.started += MapPressed;
+        playerInput.PlayerActionMap.Bag.started += BagPressed;
     }
 
     // Update is called once per frame
@@ -81,10 +87,10 @@ public class NewPlayerInput : MonoBehaviour
 
     private void UpdateInput()
     {
-        inputVector = playerInput.actions["Movement"].ReadValue<Vector2>();
-        playerController.isRunning = playerInput.actions["Run"].IsPressed();
-        playerController.isJumping = playerInput.actions["Jump"].IsPressed();
-        playerController.isPickingUp = playerInput.actions["Interact"].IsPressed();
+        inputVector = playerInput.PlayerActionMap.Movement.ReadValue<Vector2>();
+        playerController.isRunning = playerInput.PlayerActionMap.Run.IsPressed();
+        playerController.isJumping = playerInput.PlayerActionMap.Jump.IsPressed();
+        playerController.isPickingUp = playerInput.PlayerActionMap.Interact.IsPressed();
     }
 
     private void CheckJump()
@@ -111,6 +117,36 @@ public class NewPlayerInput : MonoBehaviour
         playerController.isInAir = false;
         playerController.isJumping = false;
         playerAnimator.Blend("CharacterArmature|Run", 1.0f);
+    }
+    private void PausedPressed(InputAction.CallbackContext context)
+    {
+        playerController.isPaused = !playerController.isPaused;
+        if (playerController.isPaused)
+        {
+            pauseUI.Pause();
+        }
+        else
+        {
+            pauseUI.Resume();
+        }
+    }
+    private void BagPressed(InputAction.CallbackContext context)
+    {
+        bagUI.SetActive(!bagUI.activeInHierarchy);
+    }
+    private void MapPressed(InputAction.CallbackContext context)
+    {
+        mapUI.SetActive(!mapUI.activeInHierarchy);
+    }
+    
+    private void OnEnable()
+    {
+        playerInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInput.Disable();
     }
 
 }

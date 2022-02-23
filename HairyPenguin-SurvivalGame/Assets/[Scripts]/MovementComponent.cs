@@ -28,6 +28,11 @@ public class MovementComponent : MonoBehaviour
     Vector2 inputVector = Vector2.zero;
     Vector3 moveDirection = Vector3.zero;
 
+    [Header("UI buttons")]
+    public GameObject mapUI;
+    public GameObject bagUI;
+    public PauseMenuScript pauseUI;
+
 
 
     private void Awake()
@@ -42,6 +47,9 @@ public class MovementComponent : MonoBehaviour
     void Start()
     {
         playerAnimator.Play("CharacterArmature|Idle");
+        playerInput.PlayerActionMap.Pause.started += PausedPressed;
+        playerInput.PlayerActionMap.Map.started += MapPressed;
+        playerInput.PlayerActionMap.Bag.started += BagPressed;
         playerInput.PlayerActionMap.Jump.started += JumpPressed;
     }
 
@@ -76,9 +84,6 @@ public class MovementComponent : MonoBehaviour
         playerController.isRunning = playerInput.PlayerActionMap.Run.IsPressed();
         playerController.isJumping = playerInput.PlayerActionMap.Jump.IsPressed();
         playerController.isPickingUp = playerInput.PlayerActionMap.Interact.IsPressed();
-        playerController.isPaused = playerInput.PlayerActionMap.Pause.IsPressed();
-        playerController.isOpeningBag = playerInput.PlayerActionMap.Bag.IsPressed();
-        playerController.isOpeningMap = playerInput.PlayerActionMap.Map.IsPressed();
     }
 
     private void CheckJump()
@@ -113,7 +118,31 @@ public class MovementComponent : MonoBehaviour
 
     private void JumpPressed(InputAction.CallbackContext context)
     {
-        Debug.Log("jump");
+        Debug.Log("Jump!");
+    }
+
+    private void PausedPressed(InputAction.CallbackContext context)
+    {
+        Debug.Log("paused pressed");
+        playerController.isPaused = !playerController.isPaused;
+        if (playerController.isPaused)
+        {
+            pauseUI.Pause();
+        }
+        else
+        {
+            pauseUI.Resume();
+        }
+    }
+    private void BagPressed(InputAction.CallbackContext context)
+    {
+        playerController.isBagOpened = !playerController.isBagOpened;
+        bagUI.SetActive(playerController.isBagOpened);
+    }
+    private void MapPressed(InputAction.CallbackContext context)
+    {
+        playerController.isMapOpened = !playerController.isMapOpened;
+        mapUI.SetActive(playerController.isMapOpened);
     }
     
 }
