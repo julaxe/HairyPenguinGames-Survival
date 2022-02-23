@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    [SerializeField]
+    public int BulletDamage = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class BulletController : MonoBehaviour
         {
             // Do something when bullet hits player
             Destroy(gameObject);
+            other.gameObject.GetComponent<PlayerHealthController>().setHealth(-BulletDamage);
         }
 
         if (other.tag == "Ground")

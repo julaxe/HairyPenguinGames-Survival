@@ -2360,16 +2360,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 263521161}
     - target: {fileID: 5372507699293011068, guid: 66a890dc30e3ada4ea1fef408b4ad9ce, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 2620873879155645917, guid: 0718e347bcf472149be39e7bbef08861, type: 3}
+    - target: {fileID: 5372507699293011068, guid: 66a890dc30e3ada4ea1fef408b4ad9ce, type: 3}
       propertyPath: sightRange
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5372507699293011068, guid: 66a890dc30e3ada4ea1fef408b4ad9ce, type: 3}
       propertyPath: attackRange
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5372507699293011068, guid: 66a890dc30e3ada4ea1fef408b4ad9ce, type: 3}
       propertyPath: walkPointRange
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372507699293011068, guid: 66a890dc30e3ada4ea1fef408b4ad9ce, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5372507699293011068, guid: 66a890dc30e3ada4ea1fef408b4ad9ce, type: 3}
       propertyPath: whatIsGround.m_Bits
