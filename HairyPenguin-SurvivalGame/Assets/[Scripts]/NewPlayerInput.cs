@@ -68,7 +68,7 @@ public class NewPlayerInput : MonoBehaviour
         {
             playerAnimator.Blend("CharacterArmature|Run", 1.0f);
         }
-
+        if (Time.timeScale == 0) return;
         moveDirection = transform.forward * inputVector.y;
         float currentSpeed = playerController.isRunning ? runSpeed : walkSpeed;
 
