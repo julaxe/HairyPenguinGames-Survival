@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: onlyAtNight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: spawnPerTick
@@ -575,7 +575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: onlyAtNight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: spawnPerTick
@@ -773,6 +773,10 @@ PrefabInstance:
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: maxAmount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
+      propertyPath: onlyAtNight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: spawnPerTick
@@ -3871,6 +3875,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
+      propertyPath: onlyAtNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: spawnPerTick
       value: 1
       objectReference: {fileID: 0}
@@ -4187,6 +4195,10 @@ PrefabInstance:
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: maxAmount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
+      propertyPath: onlyAtNight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: spawnPerTick
@@ -5399,7 +5411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: onlyAtNight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4984243274068691476, guid: cea38fb6ea5913a4fb698e66e08613ff, type: 3}
       propertyPath: spawnPerTick
