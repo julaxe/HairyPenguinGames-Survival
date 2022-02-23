@@ -19,6 +19,10 @@ public class ItemSlotGridDimensioner : MonoBehaviour
     {
         itemSlotPrefab = Resources.Load<GameObject>("Prefabs/ItemSlot");
         listSlots = new List<GameObject>();
+
+        if (!currentBag) return;
+        LoadBag();
+        UnLoadBag();
     }
 
     public void SetCurrentBag(Bag bag)
