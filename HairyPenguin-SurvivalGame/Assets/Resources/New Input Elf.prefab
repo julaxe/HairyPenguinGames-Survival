@@ -832,12 +832,10 @@ GameObject:
   - component: {fileID: 7714949163435944858}
   - component: {fileID: 7714949163435944850}
   - component: {fileID: 7714949163435944863}
-  - component: {fileID: 7714949163435944856}
   - component: {fileID: 6118487400029724854}
   - component: {fileID: 7714949163435944855}
   - component: {fileID: 7714949163435944848}
   - component: {fileID: 7714949163435944844}
-  - component: {fileID: 7714949162071083223}
   m_Layer: 7
   m_Name: New Input Elf
   m_TagString: Player
@@ -1038,22 +1036,9 @@ MonoBehaviour:
   isInAir: 0
   isRunning: 0
   isPickingUp: 0
---- !u!114 &7714949163435944856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118487400029724857}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be958a71d0c9b764686e09f4137ad5a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 5
-  runSpeed: 10
-  jumpForce: 5
-  airControl: 0.5
+  isBagOpened: 0
+  isMapOpened: 0
+  isPaused: 0
 --- !u!114 &6118487400029724854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,8 +1054,12 @@ MonoBehaviour:
   walkSpeed: 5
   runSpeed: 10
   jumpForce: 5
-  airControl: 0.5
+  speedLimit: 2.5
   rotationSens: 4
+  airControl: 0.5
+  mapUI: {fileID: 0}
+  bagUI: {fileID: 0}
+  pauseUI: {fileID: 0}
 --- !u!114 &7714949163435944855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,6 +1097,7 @@ MonoBehaviour:
   pickUpResource:
     Template: {fileID: 0}
     Count: 0
+  grid: {fileID: 0}
 --- !u!114 &7714949163435944844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,56 +1111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MaxHealth: 100
---- !u!114 &7714949162071083223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118487400029724857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d79ddd87c8d6ac34caa3aa3862caa693, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c4b644f7-7e4b-4bf6-84af-c62077fff44a
-    m_ActionName: PlayerActionMap/Movement[/Keyboard/z,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6663264a-8235-4d06-aa28-9b71c05a9e86
-    m_ActionName: PlayerActionMap/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8a24a89f-1e9d-40d1-a5c2-e6ec718450ff
-    m_ActionName: PlayerActionMap/Run[/Keyboard/shift,/XInputControllerWindows/buttonNorth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: aaf1bcac-3622-4cf8-9d76-309ec53fb933
-    m_ActionName: PlayerActionMap/Interact[/Keyboard/e,/XInputControllerWindows/buttonEast]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c01e7937-5891-45c2-be89-b2cb554195d2
-    m_ActionName: CameraActionMap/CameraMovement[/Mouse/delta/x]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerActionMap
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &6290661736674702856
 GameObject:
   m_ObjectHideFlags: 0
