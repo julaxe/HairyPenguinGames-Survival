@@ -78,7 +78,7 @@ public class DayNightCycle : MonoBehaviour
 
             }
             _timer = 0;
-            Debug.Log(GameTime.TensHours.ToString() + GameTime.Hours.ToString() + ":" + GameTime.TensMinutes.ToString() + GameTime.Minutes.ToString());
+            //Debug.Log(GameTime.TensHours.ToString() + GameTime.Hours.ToString() + ":" + GameTime.TensMinutes.ToString() + GameTime.Minutes.ToString());
         }
     }
 }

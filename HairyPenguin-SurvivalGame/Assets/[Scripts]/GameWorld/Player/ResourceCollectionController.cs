@@ -30,39 +30,23 @@ public class ResourceCollectionController : MonoBehaviour
         //Connect to inventory
         //Inventory Full
         canCollect = false;
-        pickUpResource = currentResourceToCollect.GetComponent<ResourceInfo>().collectingResource(hasMiningPick, hasAxe);
-        Destroy(currentResourceToCollect);
-        
+        pickUpResource = currentResourceToCollect.GetComponent<ResourceInfo>().collectingResource(hasMiningPick, hasAxe); 
 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-
-        if (collision.gameObject.CompareTag("ResourceNode"))
+        if (other.CompareTag("ResourceNode"))
         {
             canCollect = true;
-            currentResourceToCollect = collision.gameObject;
-            Destroy(collision.gameObject);
+            currentResourceToCollect = other.gameObject;
         }
-
     }
-
- 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("ResourceNode"))
-    //    {
-    //        canCollect = true;
-    //        currentResourceToCollect = other.gameObject;
-    //    }
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("ResourceNode"))
-    //    {
-    //        canCollect = false;
-    //        currentResourceToCollect = null;
-    //    }
-    //}
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("ResourceNode"))
+        {
+            canCollect = false;
+            currentResourceToCollect = null;
+        }
+    }
 }

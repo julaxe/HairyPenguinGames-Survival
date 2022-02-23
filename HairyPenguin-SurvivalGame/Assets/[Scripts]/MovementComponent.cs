@@ -14,6 +14,7 @@ public class MovementComponent : MonoBehaviour
     float jumpForce = 5;
     [SerializeField]
     float airControl = 0.5f;
+    
 
     //components
     PlayerController playerController;
@@ -46,11 +47,11 @@ public class MovementComponent : MonoBehaviour
        
         UpdateInput();
         CheckJump();
-        if (!(inputVector.magnitude > 0))
+        if (!(inputVector.magnitude > 0) && !playerController.isInAir)
         {
             playerAnimator.Play("CharacterArmature|Idle");
             moveDirection = Vector3.zero;
-        } else 
+        } else if(!playerController.isInAir && !playerController.isJumping)
         {
             playerAnimator.Blend("CharacterArmature|Run", 1.0f);
         }
@@ -84,6 +85,7 @@ public class MovementComponent : MonoBehaviour
         //jump
         rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
         playerController.isInAir = true;
+        playerController.isJumping = true;
         playerAnimator.Play("CharacterArmature|Jump");
     }
     private void OnCollisionEnter(Collision collision)
@@ -91,6 +93,7 @@ public class MovementComponent : MonoBehaviour
         if (!collision.gameObject.CompareTag("Ground") && !playerController.isJumping) return;
 
         playerController.isInAir = false;
+        playerController.isJumping = false;
         playerAnimator.Blend("CharacterArmature|Run", 1.0f);
     }
     

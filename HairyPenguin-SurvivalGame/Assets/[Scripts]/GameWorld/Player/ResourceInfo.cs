@@ -32,14 +32,14 @@ public class ResourceInfo : MonoBehaviour
                 }
                 else
                 {
-                    temp = listofPickUps[0];
+                    temp = listofPickUps[1];
                 }
                 break;
             case TypesOfResourceNodes.Rock:
                 if (!hasPick)
                 {
                     Debug.Log("Need Pick Tool");
-                    return listofPickUps[0];
+                    return null;
                 }
                 temp = listofPickUps[0];
                 break;
@@ -47,13 +47,21 @@ public class ResourceInfo : MonoBehaviour
                 if (!hasAxe)
                 {
                     Debug.Log("Need Axe Tool");
-                    return listofPickUps[0];
+                    return null;
                 }
-                temp = listofPickUps[0];
+                if (choosingItem < 5)
+                {
+                    temp = listofPickUps[0];
+                }
+                else
+                {
+                    temp = listofPickUps[1];
+                }
                 break;
             default:
                 break;
         }
+        Destroy(this.gameObject);
         return temp;
     }
     public enum TypesOfResourceNodes
