@@ -34,6 +34,12 @@ public class PlayerHealthController : MonoBehaviour
         }
         _UIHealthBar.value = _CurrentHealth;
     }
+    public void setLastHealth(int amount)
+    {
+        _CurrentHealth = amount;
+       
+        _UIHealthBar.value = _CurrentHealth;
+    }
 
     public float getCurrentHealth()
     {

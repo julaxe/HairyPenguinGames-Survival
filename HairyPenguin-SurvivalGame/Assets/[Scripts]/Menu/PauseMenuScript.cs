@@ -9,7 +9,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject pauseMenuToggle;
-  
+    public SaveAndLoad SaveScript;
     public void Resume()
     {
         pauseMenuToggle.SetActive(true);
@@ -24,6 +24,14 @@ public class PauseMenuScript : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         isGamePaused = true;
+    }
+    public void Save()
+    {
+        SaveScript.OnSave();
+    }
+    public void Load()
+    {
+        SaveScript.OnLoad();
     }
     public void LoadMainMenu()
     {

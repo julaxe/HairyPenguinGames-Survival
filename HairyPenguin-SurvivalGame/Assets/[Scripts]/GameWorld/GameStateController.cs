@@ -53,6 +53,14 @@ public class GameStateController : MonoBehaviour
             SceneManager.LoadScene("Credits");
         }
     }
-
+    public Transform getspawnPoint()
+    {
+        return _currentSpawnPoint;
+    }
+    public int getNumberofBoatParts()
+    {
+        return numberOfBoatParts;
+    }
+ 
 
 }

@@ -31,7 +31,7 @@ public class NewPlayerInput : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     float playerRotation;
 
-
+    PauseMenuScript pauseMenu;
 
     private void Awake()
     {
@@ -40,6 +40,7 @@ public class NewPlayerInput : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
        
         playerInput = GetComponent<PlayerInput>();
+        pauseMenu = GetComponent<PauseMenuScript>();
     }
     // Start is called before the first frame update
     void Start()
@@ -76,6 +77,7 @@ public class NewPlayerInput : MonoBehaviour
         
 
         transform.position += movementDirection;
+        if(!PauseMenuScript.isGamePaused)
         Rotate();
     }
 

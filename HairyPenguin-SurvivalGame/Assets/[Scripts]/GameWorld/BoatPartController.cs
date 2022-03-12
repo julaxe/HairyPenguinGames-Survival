@@ -5,6 +5,8 @@ using UnityEngine;
 public class BoatPartController : MonoBehaviour
 {
     GameStateController gameState;
+    public int id;
+   public SaveAndLoad saver;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +18,13 @@ public class BoatPartController : MonoBehaviour
     {
         
     }
-
+    public int getId()
+    {
+        return id;
+    }
     private void OnTriggerEnter(Collider other)
     {
+        saver.SaveBoatID(id);
         gameState.addedBoatPart();
         Destroy(this.gameObject);
     }

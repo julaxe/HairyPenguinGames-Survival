@@ -12,11 +12,13 @@ public class UIButtons : MonoBehaviour
     public GameObject CreditsCanvas;
     public GameObject ControlsCanvas;
     public GameObject HowToPlayCanvas;
+    public SaveOptions saveOptions;
     public void OnPlayClicked()
     {
         playCanvas.SetActive(true);
         MainMenuCanvas.SetActive(false);
     }
+   
     public void OnOptionsClicked()
     {
         OptionsCanvas.SetActive(true);
@@ -58,10 +60,12 @@ public class UIButtons : MonoBehaviour
     
     public void OnNewGameClicked()
     {
+        saveOptions.setLoading(false);
         SceneManager.LoadScene("MainLevel");
     }
     public void OnLoadGameClicked()
     {
+        saveOptions.setLoading(true);
         SceneManager.LoadScene("MainLevel");
     }
 }
