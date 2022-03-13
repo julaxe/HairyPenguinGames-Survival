@@ -9906,6 +9906,8 @@ MonoBehaviour:
   platformsHolder: {fileID: 418839827}
   upButton: {fileID: 1019841619}
   downButton: {fileID: 2000198677}
+  defualtMaterial: {fileID: 2100000, guid: c0273817d9b557c4cbe78d17e9f64976, type: 2}
+  ghostMaterial: {fileID: 2100000, guid: 883201fa7b0b32a4fbb9dc91426d7c0b, type: 2}
 --- !u!4 &4609498801301626926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6891329259316050435, guid: 386b1a1c7528a974f89fa845176f3a35, type: 3}

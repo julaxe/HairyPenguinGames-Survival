@@ -11,6 +11,8 @@ public class PlacingPlatform : MonoBehaviour
     public GameObject platformsHolder;
     public GameObject upButton;
     public GameObject downButton;
+    public Material defualtMaterial;
+    public Material ghostMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,8 @@ public class PlacingPlatform : MonoBehaviour
             isChoosingPlacement = true;
             upButton.SetActive(true);
             downButton.SetActive(true);
-
+            ghostPlatform.GetComponent<MeshRenderer>().material = ghostMaterial;
+            ghostPlatform.GetComponent<BoxCollider>().enabled = false;
         }
         else
         {
@@ -41,11 +44,13 @@ public class PlacingPlatform : MonoBehaviour
             isChoosingPlacement = false;
             upButton.SetActive(false);
             downButton.SetActive(false);
+            ghostPlatform.GetComponent<MeshRenderer>().material = defualtMaterial;
+            ghostPlatform.GetComponent<BoxCollider>().enabled = true;
         }
     }
     public void upButtonPressed()
     {
-        ghostPlatform.transform.position += Vector3.up * 0.5f; 
+        ghostPlatform.transform.position += Vector3.up * 0.5f;
     }
     public void downButtonPressed()
     {
