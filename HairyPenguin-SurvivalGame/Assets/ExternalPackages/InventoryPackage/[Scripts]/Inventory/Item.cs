@@ -65,7 +65,7 @@ public class Item : MonoBehaviour
     {
         if(dragging)
         {
-            transform.position = Mouse.current.position.ReadValue();
+            transform.position = Touchscreen.current.touches[0].position.ReadValue();
         }
     }
     public void UseItemInSlot()
