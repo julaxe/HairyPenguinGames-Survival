@@ -6,6 +6,7 @@ using TMPro;
 public class CreditsMenu : MonoBehaviour
 {
     public TextMeshProUGUI timeRemaining;
+    public TextMeshProUGUI enemiesKilled;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class CreditsMenu : MonoBehaviour
         }
 
         timeRemaining.text = "Time Spent Playing: " +  minutes_str + " : " + seconds_str;
+        enemiesKilled.text = "Enemies Killed: " + ResourceCollectionController.enemiesKilled;
     }
 
     // Update is called once per frame

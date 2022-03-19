@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class ResourceCollectionController : MonoBehaviour
 {
     PlayerController playerController;
+    public static int enemiesKilled = 0;
     public bool hasMiningPick;
     public bool hasAxe;
     public bool canCollect;
@@ -19,6 +20,7 @@ public class ResourceCollectionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemiesKilled = 0;
         playerController = GetComponent<PlayerController>();
         _bag = GetComponent<Bag>();
     }

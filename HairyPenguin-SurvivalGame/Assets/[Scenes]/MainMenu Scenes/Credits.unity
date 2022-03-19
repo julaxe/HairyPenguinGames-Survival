@@ -706,6 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeRemaining: {fileID: 1751325325}
+  enemiesKilled: {fileID: 1439874161}
 --- !u!1 &1165305965
 GameObject:
   m_ObjectHideFlags: 0

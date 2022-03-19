@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -111,9 +112,15 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<AudioSource>().Play();
-            other.gameObject.GetComponent<Animation>().Blend("CharacterArmature|Punch", 3.0f);
-            
+            if (other.gameObject.transform.position.y - gameObject.transform.position.y > 0.5)
+            {
+                other.gameObject.GetComponent<AudioSource>().Play();
+                other.gameObject.GetComponent<Animation>().Blend("CharacterArmature|Punch", 3.0f);
+                ResourceCollectionController.enemiesKilled++;
+                gameObject.SetActive(false);
+                return;
+            }
+
             //do damage to player
             other.gameObject.GetComponent<PlayerHealthController>().setHealth(-10);
         }
