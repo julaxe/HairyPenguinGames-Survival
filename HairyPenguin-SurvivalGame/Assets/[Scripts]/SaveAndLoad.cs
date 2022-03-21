@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,15 @@ public class SaveAndLoad : MonoBehaviour
     public PlayerHealthController playerHealthController;
     public  GameStateController gameStateController;
     public SaveOptions saveOptions;
+
+    private Bag _playerBag;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        _playerBag = GetComponent<Bag>();
+    }
+
     void Start()
     {
         if (saveOptions.getLoading())
@@ -50,7 +59,8 @@ public class SaveAndLoad : MonoBehaviour
     }
     void SaveInventory()
     {
-
+        var json = JsonUtility.ToJson(_playerBag.GetSavedBag());
+        PlayerPrefs.SetString("PlayerBag", json);
     }
     void SaveNumberOfBoatParts()
     {
@@ -126,6 +136,12 @@ public class SaveAndLoad : MonoBehaviour
 
     void LoadInventory()
     {
-
+        if (PlayerPrefs.HasKey("PlayerBag"))
+        {
+            var json = PlayerPrefs.GetString("PlayerBag");
+            SavedBag savedBag = JsonUtility.FromJson<SavedBag>(json);
+            _playerBag.LoadSavedBag(savedBag);
+            
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -198,4 +199,73 @@ public class Bag : MonoBehaviour
     {
         listOfItems.Add(item);
     }
+
+    public SavedBag GetSavedBag()
+    {
+        SavedBag savedBag;
+        savedBag.listOfItem = new List<SavedItem>();
+        foreach (var item in listOfItems)
+        {
+            string itemName = item.GetComponent<Item>().ItemTemplate.name;
+            int itemCount = item.GetComponent<Item>().ItemCount;
+            SavedItem savedItem;
+            savedItem.name = itemName;
+            savedItem.number = itemCount;
+            savedBag.listOfItem.Add(savedItem);
+        }
+
+        return savedBag;
+    }
+
+    public void LoadSavedBag(SavedBag savedBag)
+    {
+        ClearBag();
+       
+        foreach (var item in savedBag.listOfItem)
+        {
+            CreateItemFromSavedItem(item);
+        }
+    }
+
+    private void CreateItemFromSavedItem(SavedItem savedItem)
+    {
+        string path = "Items/";
+        path += savedItem.name;
+        ItemTemplate itemTemplate = Resources.Load<ItemTemplate>(path);
+        GenerateItem itemToGenerate = new GenerateItem();
+        itemToGenerate.Template = itemTemplate;
+        itemToGenerate.Count = savedItem.number;
+        AddNewItemToTheBag(itemToGenerate);
+    }
+
+    private void ClearListOfSlotNodes()
+    {
+        foreach (var slotNode in listSlotNode)
+        {
+            slotNode.item = null;
+        }
+    }
+
+    private void ClearBag()
+    {
+        ClearListOfSlotNodes();
+        foreach (var item in listOfItems)
+        {
+            Destroy(item);
+        }
+        listOfItems.Clear();
+    }
+}
+
+[System.Serializable]
+public struct SavedBag
+{
+    public List<SavedItem> listOfItem;
+}
+
+[System.Serializable]
+public struct SavedItem
+{
+    public string name;
+    public int number;
 }
