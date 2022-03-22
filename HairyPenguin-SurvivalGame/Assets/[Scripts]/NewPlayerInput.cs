@@ -51,10 +51,10 @@ public class NewPlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         UpdateInput();
         CheckJump();
-        if (!(inputVector.magnitude > 0) && !playerController.isInAir)
+        if (!(inputVector.magnitude > 0) && !playerController.isInAir && !playerAnimator.IsPlaying(("CharacterArmature|SwordSlash")))
         {
             playerAnimator.Play("CharacterArmature|Idle");
             moveDirection = Vector3.zero;
@@ -62,6 +62,12 @@ public class NewPlayerInput : MonoBehaviour
         else if (!playerController.isInAir && !playerController.isJumping)
         {
             playerAnimator.Blend("CharacterArmature|Run", 1.0f);
+        }
+        if (playerInput.actions["Interact"].IsPressed() && !playerController.isJumping && !playerController.isInAir)
+        {
+          
+            playerAnimator.Play("CharacterArmature|SwordSlash");
+            
         }
 
         moveDirection = transform.forward * inputVector.y;
