@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1569915931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569915932}
+  m_Layer: 7
+  m_Name: PlatformSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1569915932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569915931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6891329259316050435}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &135840916829984847
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +803,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5834898428588456320}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 2144c885212de4b49ac3c5fdd596d238, type: 3}
   m_Controller: {fileID: 9100000, guid: 81440452dc57bd24abef20eab2a28b15, type: 2}
   m_CullingMode: 0
@@ -838,6 +869,8 @@ GameObject:
   - component: {fileID: 7714949163435944848}
   - component: {fileID: 7714949163435944844}
   - component: {fileID: 7714949162071083223}
+  - component: {fileID: 4609498801301626915}
+  - component: {fileID: 4609498801301626916}
   m_Layer: 7
   m_Name: New Input Elf
   m_TagString: Player
@@ -861,6 +894,7 @@ Transform:
   - {fileID: 1407972123659025013}
   - {fileID: 7714949162906398309}
   - {fileID: 7714949161620596964}
+  - {fileID: 1569915932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1038,6 +1072,9 @@ MonoBehaviour:
   isInAir: 0
   isRunning: 0
   isPickingUp: 0
+  isOpeningBag: 0
+  isOpeningMap: 0
+  isPaused: 0
 --- !u!114 &7714949163435944856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,8 +1106,9 @@ MonoBehaviour:
   walkSpeed: 5
   runSpeed: 10
   jumpForce: 5
-  airControl: 0.5
+  speedLimit: 2.5
   rotationSens: 4
+  airControl: 0.5
 --- !u!114 &7714949163435944855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,6 +1146,7 @@ MonoBehaviour:
   pickUpResource:
     Template: {fileID: 0}
     Count: 0
+  grid: {fileID: 0}
 --- !u!114 &7714949163435944844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,11 +1205,57 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c01e7937-5891-45c2-be89-b2cb554195d2
     m_ActionName: CameraActionMap/CameraMovement[/Mouse/delta/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 78a7a18b-48b7-4932-b3e8-96eb76cc7c59
+    m_ActionName: PlayerActionMap/Pause[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 310025c6-7dc2-4eeb-930e-d636e91baf50
+    m_ActionName: PlayerActionMap/Map[/Keyboard/m]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cf217108-6b1c-43a3-83a9-0555642a07dd
+    m_ActionName: PlayerActionMap/Bag[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActionMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4609498801301626915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118487400029724857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c5971865ff0bc4eba132d21cd39700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealthController: {fileID: 7714949163435944844}
+  gameStateController: {fileID: 0}
+  saveOptions: {fileID: 0}
+--- !u!114 &4609498801301626916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118487400029724857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1813573f52605944abf31b77eb23c474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 2577004859444556789, guid: 18354f16e615c2d46a0f57a4f7a0df12, type: 3}
+  platformSpawnPosition: {fileID: 1569915931}
+  platformsHolder: {fileID: 0}
+  upButton: {fileID: 0}
+  downButton: {fileID: 0}
+  defualtMaterial: {fileID: 2100000, guid: c0273817d9b557c4cbe78d17e9f64976, type: 2}
+  ghostMaterial: {fileID: 2100000, guid: 883201fa7b0b32a4fbb9dc91426d7c0b, type: 2}
 --- !u!1 &6290661736674702856
 GameObject:
   m_ObjectHideFlags: 0
