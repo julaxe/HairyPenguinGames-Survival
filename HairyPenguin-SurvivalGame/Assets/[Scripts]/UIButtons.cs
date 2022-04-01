@@ -10,7 +10,7 @@ public class UIButtons : MonoBehaviour
     public GameObject MainMenuCanvas;
     public GameObject OptionsCanvas;
     public GameObject CreditsCanvas;
-    public GameObject ControlsCanvas;
+   
     public GameObject HowToPlayCanvas;
     public SaveOptions saveOptions;
     public void OnPlayClicked()
@@ -32,11 +32,7 @@ public class UIButtons : MonoBehaviour
         MainMenuCanvas.SetActive(false);
     }
 
-    public void OnControlsClicked()
-    {
-        ControlsCanvas.SetActive(true);
-        MainMenuCanvas.SetActive(false);
-    }
+  
     public void OnHowToPlayClicked()
     {
         HowToPlayCanvas.SetActive(true);
@@ -48,7 +44,7 @@ public class UIButtons : MonoBehaviour
         OptionsCanvas.SetActive(false);
         playCanvas.SetActive(false);
         CreditsCanvas.SetActive(false);
-        ControlsCanvas.SetActive(false);
+       
         HowToPlayCanvas.SetActive(false);
         MainMenuCanvas.SetActive(true);
     }
