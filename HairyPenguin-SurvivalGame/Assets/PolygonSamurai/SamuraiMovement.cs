@@ -59,7 +59,7 @@ public class SamuraiMovement : MonoBehaviour
             playerAnimator.SetBool("AttackPressed", true);
 
         }
-       if( playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack"))
+       if( playerAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime > 0.7f && playerAnimator.GetCurrentAnimatorStateInfo(1).IsName("Basic Attack"))
         {
             playerAnimator.SetBool("AttackPressed", false);
         }
