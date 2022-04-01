@@ -48,6 +48,8 @@ public class Item : MonoBehaviour
     private float width;
     private float height;
     private bool dragging =false;
+    private float tapTime = 0.5f;
+    private float draggingTimer;
 
     [NonSerialized]
     public List<SlotNode> slotNodes = new List<SlotNode>(); //for the bag
@@ -65,7 +67,9 @@ public class Item : MonoBehaviour
     {
         if(dragging)
         {
-            transform.position = Touchscreen.current.touches[0].position.ReadValue();
+            draggingTimer += Time.deltaTime;
+            if(draggingTimer >= tapTime)
+                transform.position = Touchscreen.current.touches[0].position.ReadValue();
         }
     }
     public void UseItemInSlot()
@@ -110,7 +114,28 @@ public class Item : MonoBehaviour
     public void onClickEventEnd()
     {
         dragging = false;
-        
+        if (draggingTimer >= tapTime)
+        {
+            MoveItemSlot();
+        }
+        else
+        {
+            if (itemTemplate.Use())
+            {
+                ItemCount -= 1;
+                if (ItemCount <= 0)
+                {
+                    DeleteItem();
+                }
+            }
+            //Debug.Log("Tapping!");
+        }
+
+        draggingTimer = 0.0f;
+    }
+
+    private void MoveItemSlot()
+    {
         //check if it can be added to the current slots
         if(slotsInUse.Count == numberOfSlots)
         {
@@ -127,9 +152,7 @@ public class Item : MonoBehaviour
                         {
                             //we change add the items and change the bags
                             item.GetComponent<Item>().ItemCount += itemCount;
-                            previousSlots[0].Bag.DeleteFromlist(this.gameObject);
-                            ClearPreviousSlots();
-                            Destroy(this.gameObject);
+                            DeleteItem();
                             return;
                         }
                     }
@@ -164,6 +187,14 @@ public class Item : MonoBehaviour
             GoBackToPreviousPosition();
         }
     }
+
+    private void DeleteItem()
+    {
+        previousSlots[0].Bag.DeleteFromlist(this.gameObject);
+        ClearPreviousSlots();
+        Destroy(this.gameObject);
+    }
+    
     public void GoBackToPreviousPosition()
     {
         if(previousSlots.Count>0)

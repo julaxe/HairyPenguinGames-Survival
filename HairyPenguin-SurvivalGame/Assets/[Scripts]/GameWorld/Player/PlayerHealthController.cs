@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerHealthController : MonoBehaviour
 {
-    private float _CurrentHealth;
+    [SerializeField] private float _CurrentHealth;
     [SerializeField] private float _MaxHealth;
     private Slider _UIHealthBar;
 
@@ -12,7 +12,7 @@ public class PlayerHealthController : MonoBehaviour
     void Start()
     {
         _UIHealthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
-        _CurrentHealth = _UIHealthBar.value = _UIHealthBar.maxValue = _MaxHealth;
+        _UIHealthBar.value = _UIHealthBar.maxValue = _MaxHealth;
     }
 
     // Update is called once per frame

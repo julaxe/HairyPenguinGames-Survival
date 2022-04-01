@@ -2990,17 +2990,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659675682}
   m_CullTransparentMesh: 1
---- !u!114 &664693561 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7714949163435944855, guid: 386b1a1c7528a974f89fa845176f3a35, type: 3}
-  m_PrefabInstance: {fileID: 7714949162941644974}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4609498801301626903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7267eed850f5d4ca55119342204bc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &667620600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 05e65238d038b9e4e98cbce474940316, type: 3}
@@ -3833,7 +3822,7 @@ PrefabInstance:
     - target: {fileID: 5046469354560305820, guid: 5df30b0110a1197479fce8d7b39e7a58, type: 3}
       propertyPath: currentBag
       value: 
-      objectReference: {fileID: 664693561}
+      objectReference: {fileID: 1086869908}
     - target: {fileID: 5046469354590909973, guid: 5df30b0110a1197479fce8d7b39e7a58, type: 3}
       propertyPath: m_Pivot.y
       value: 2.5
@@ -5274,6 +5263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b26ebfb8715ca4e88778da9b467a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CurrentHealth: 50
   _MaxHealth: 100
 --- !u!114 &1086869907
 MonoBehaviour:
@@ -5313,6 +5303,8 @@ MonoBehaviour:
   initialItems:
   - Template: {fileID: 11400000, guid: 07e697c664bd5e14ea97db345647eec3, type: 2}
     Count: 1
+  - Template: {fileID: 11400000, guid: 28a1b6b457d944c41bc6f0510adb0b9c, type: 2}
+    Count: 2
 --- !u!114 &1086869909
 MonoBehaviour:
   m_ObjectHideFlags: 0

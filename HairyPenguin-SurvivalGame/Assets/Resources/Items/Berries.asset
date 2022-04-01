@@ -18,3 +18,5 @@ MonoBehaviour:
   isConsumable: 1
   columns: 1
   rows: 1
+  itemEffects:
+  - {fileID: 11400000, guid: 2325d4c17960fe846babd9bc0a3237ea, type: 2}

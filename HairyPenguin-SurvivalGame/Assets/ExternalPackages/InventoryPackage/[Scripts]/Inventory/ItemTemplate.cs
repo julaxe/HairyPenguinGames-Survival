@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ExternalPackages.InventoryPackage._Scripts_.Inventory;
 using UnityEngine;
 
 class ItemModifiedException : System.Exception
@@ -31,12 +32,19 @@ public class ItemTemplate : ScriptableObject
     [Header("Space on grid")]
     public int columns = 1;
     public int rows = 1;
-    
+    public List<ItemEffect> itemEffects;
 
     //returns whether or not the Item was successfully used
     public bool Use()
     {
-        Debug.Log("Used item: " + name);
+        //Debug.Log("Used item: " + name);
+        if (itemEffects.Count <= 0) return false;
+        
+        foreach (var effect in itemEffects)
+        {
+            effect.Apply();
+        }
         return true;
+
     }
 }
