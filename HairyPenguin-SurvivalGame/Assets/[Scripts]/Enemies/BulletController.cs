@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField]
-    public int BulletDamage = 10;
+    public int BulletDamage = 1;
 
     // Start is called before the first frame update
     void Start()
