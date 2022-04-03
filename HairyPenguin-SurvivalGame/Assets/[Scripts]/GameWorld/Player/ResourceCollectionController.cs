@@ -36,7 +36,7 @@ public class ResourceCollectionController : MonoBehaviour
         //Connect to inventory
         //Inventory Full
         canCollect = false;
-        pickUpResource = currentResourceToCollect.GetComponent<ResourceInfo>().collectingResource(hasMiningPick, hasAxe); 
+        pickUpResource = currentResourceToCollect.GetComponent<ResourceInfo>().collectingResource(hasMiningPick, hasAxe);
         _bag.AddNewItemToTheBag(pickUpResource);
         grid.UpdateBag();
     }

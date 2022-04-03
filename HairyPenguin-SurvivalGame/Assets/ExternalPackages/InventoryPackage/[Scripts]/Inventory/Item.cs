@@ -188,7 +188,7 @@ public class Item : MonoBehaviour
         }
     }
 
-    private void DeleteItem()
+    public void DeleteItem()
     {
         previousSlots[0].Bag.DeleteFromlist(this.gameObject);
         ClearPreviousSlots();

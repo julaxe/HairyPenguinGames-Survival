@@ -13,11 +13,13 @@ public class PlacingPlatform : MonoBehaviour
     public GameObject downButton;
     public Material defualtMaterial;
     public Material ghostMaterial;
+    public Bag _bag;
 
     // Start is called before the first frame update
     void Start()
     {
         isChoosingPlacement = false;
+        _bag = GetComponent<Bag>();
     }
 
     // Update is called once per frame
@@ -30,13 +32,16 @@ public class PlacingPlatform : MonoBehaviour
     {
         if (!isChoosingPlacement)
         {
-            ghostPlatform = Instantiate(platform, transform);
-            ghostPlatform.transform.position = platformSpawnPosition.transform.position;
-            isChoosingPlacement = true;
-            upButton.SetActive(true);
-            downButton.SetActive(true);
-            ghostPlatform.GetComponent<MeshRenderer>().material = ghostMaterial;
-            ghostPlatform.GetComponent<BoxCollider>().enabled = false;
+            foreach (var item in _bag.listOfItems)
+            {
+                if (item.gameObject.tag == "Wood")
+                {
+                    //_bag.DeleteFromlist(item);
+                    item.GetComponent<Item>().DeleteItem();
+                    placement();
+                    break;
+                }
+            }
         }
         else
         {
@@ -47,6 +52,20 @@ public class PlacingPlatform : MonoBehaviour
             ghostPlatform.GetComponent<MeshRenderer>().material = defualtMaterial;
             ghostPlatform.GetComponent<BoxCollider>().enabled = true;
         }
+    }
+
+    private void placement()
+    {
+
+        ghostPlatform = Instantiate(platform, transform);
+        ghostPlatform.transform.position = platformSpawnPosition.transform.position;
+        isChoosingPlacement = true;
+        upButton.SetActive(true);
+        downButton.SetActive(true);
+        ghostPlatform.GetComponent<MeshRenderer>().material = ghostMaterial;
+        ghostPlatform.GetComponent<BoxCollider>().enabled = false;
+
+
     }
     public void upButtonPressed()
     {

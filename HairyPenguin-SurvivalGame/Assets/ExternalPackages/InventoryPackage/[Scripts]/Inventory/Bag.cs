@@ -82,6 +82,10 @@ public class Bag : MonoBehaviour
         GameObject item = Instantiate(itemPrefab, ItemsLocation);
         item.GetComponent<Item>().ItemTemplate = template.Template;
         item.GetComponent<Item>().ItemCount = template.Count;
+        if(template.Template.name == "Plank")
+        {
+            item.gameObject.tag = "Wood";
+        }
         AddAnItemToTheBagViaCode(item);
         item.SetActive(bagIsActive);
     }
