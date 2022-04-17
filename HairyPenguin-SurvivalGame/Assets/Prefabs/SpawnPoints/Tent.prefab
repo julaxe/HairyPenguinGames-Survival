@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 872582231406525509}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 30, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3250443109224750150}
@@ -95,10 +95,10 @@ GameObject:
   - component: {fileID: 3250443109224750150}
   - component: {fileID: 3270644553822723942}
   - component: {fileID: 3262346703564021968}
-  - component: {fileID: 3311069225884427254}
+  - component: {fileID: 615654411}
   m_Layer: 0
   m_Name: Tent
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -113,7 +113,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 427.8546, y: 13.800951, z: 619.5945}
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4804526717593875777}
   - {fileID: 6507191899572845560}
@@ -148,7 +148,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d50e1716f4409734fbbe85f9cd2168ab, type: 3}
+  - {fileID: 2100000, guid: b14438b1c98347d4da2d4b5d697997ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,8 +170,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3311069225884427254
-MeshCollider:
+--- !u!65 &615654411
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -180,10 +180,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: d50e1716f4409734fbbe85f9cd2168ab, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 3.7639995, y: 2.1984825, z: 3.7606502}
+  m_Center: {x: -0.027158737, y: 1.0503421, z: -0.009532213}
 --- !u!1 &5180325502681541137
 GameObject:
   m_ObjectHideFlags: 0

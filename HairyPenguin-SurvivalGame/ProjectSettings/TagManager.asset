@@ -11,6 +11,7 @@ TagManager:
   - ResourceNode
   - Enemy
   - Wood
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

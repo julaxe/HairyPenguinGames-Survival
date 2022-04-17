@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStateController : MonoBehaviour
 {
-    [SerializeField] private Transform _currentSpawnPoint;
+    [SerializeField] private GameObject _currentSpawnPoint;
     private GameObject _player;
     private AudioSource _deathAudio;
     private PlayerHealthController _playerHealth;
@@ -40,9 +40,9 @@ public class GameStateController : MonoBehaviour
         _deathAudio.Play();
     }
     
-    public void updateCurrentSpawnPoint(Vector3 position)
+    public void updateCurrentSpawnPoint(GameObject position)
     {
-        _currentSpawnPoint.position = position;
+        _currentSpawnPoint = position;
     }
 
     public void addedBoatPart()
@@ -55,7 +55,7 @@ public class GameStateController : MonoBehaviour
     }
     public Transform getspawnPoint()
     {
-        return _currentSpawnPoint;
+        return _currentSpawnPoint.transform;
     }
     public int getNumberofBoatParts()
     {
