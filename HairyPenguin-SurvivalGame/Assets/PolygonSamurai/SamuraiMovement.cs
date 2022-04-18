@@ -53,6 +53,7 @@ public class SamuraiMovement : MonoBehaviour
         UpdateInput();
         CheckJump();
         playerAnimator.SetFloat("VelX", inputVector.y);
+        playerAnimator.SetFloat("VelY", rigidbody.velocity.y);
         if (playerInput.actions["Interact"].IsPressed() && !playerController.isJumping && !playerController.isInAir)
         {
 
@@ -97,7 +98,8 @@ public class SamuraiMovement : MonoBehaviour
         rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
         playerController.isInAir = true;
         playerController.isJumping = true;
-        playerAnimator.SetBool("JumpPressed", true);
+       // playerAnimator.SetBool("JumpPressed", true);
+        playerAnimator.SetTrigger("Jump");
     }
 
     private void Rotate()
@@ -112,6 +114,19 @@ public class SamuraiMovement : MonoBehaviour
         playerController.isInAir = false;
         playerController.isJumping = false;
         playerAnimator.SetBool("JumpPressed", false);
+        playerAnimator.SetBool("IsInAir", false);
+        playerAnimator.SetBool("HitGround", true);
+
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")){
+
+            playerController.isInAir = true;
+            playerAnimator.SetBool("IsInAir", true);
+            playerAnimator.SetBool("HitGround", false);
+
+        }
 
     }
 
