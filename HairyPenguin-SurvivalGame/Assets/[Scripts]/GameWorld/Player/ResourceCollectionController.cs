@@ -13,7 +13,7 @@ public class ResourceCollectionController : MonoBehaviour
     public GameObject currentResourceToCollect;
     public GenerateItem pickUpResource;
 
-    private Bag _bag;
+    public Bag _bag;
 
     public ItemSlotGridDimensioner grid;
     
@@ -22,7 +22,7 @@ public class ResourceCollectionController : MonoBehaviour
     {
         enemiesKilled = 0;
         playerController = GetComponent<PlayerController>();
-        _bag = GetComponent<Bag>();
+        //_bag = GetComponent<Bag>();
     }
 
     // Update is called once per frame

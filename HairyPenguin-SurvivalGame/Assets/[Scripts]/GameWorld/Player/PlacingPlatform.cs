@@ -38,7 +38,7 @@ public class PlacingPlatform : MonoBehaviour
     void Start()
     {
         isChoosingPlacement = false;
-        _bag = GetComponent<Bag>();
+        //_bag = GetComponent<Bag>();
         gameobjectToBuild = platform;
         gameStateController = GameObject.Find("GameController").GetComponent<GameStateController>();
 
@@ -55,6 +55,7 @@ public class PlacingPlatform : MonoBehaviour
     {
         if (!isChoosingPlacement)
         {
+            if(_bag == null) _bag = GetComponent<Bag>();
             foreach (var item in _bag.listOfItems)
             {
                 if (item.gameObject.tag == "Wood")
