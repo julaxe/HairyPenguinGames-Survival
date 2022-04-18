@@ -115,7 +115,7 @@ public class EnemyAI : MonoBehaviour
             if (other.gameObject.transform.position.y - gameObject.transform.position.y > 0.5)
             {
                 other.gameObject.GetComponent<AudioSource>().Play();
-                other.gameObject.GetComponent<Animation>().Blend("CharacterArmature|Punch", 3.0f);
+                //other.gameObject.GetComponent<Animation>().Blend("CharacterArmature|Punch", 3.0f);
                 ResourceCollectionController.enemiesKilled++;
                 gameObject.SetActive(false);
                 return;
