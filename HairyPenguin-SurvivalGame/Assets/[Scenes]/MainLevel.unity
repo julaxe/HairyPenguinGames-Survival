@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -625,7 +625,7 @@ PrefabInstance:
     - target: {fileID: 5301845899773700172, guid: 9455a84b944967f478e68632066f699d, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 4609498801301626917}
+      objectReference: {fileID: 4677938828018982}
     - target: {fileID: 5301845899773700173, guid: 9455a84b944967f478e68632066f699d, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -5632,7 +5632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 10
-  jumpForce: 20
+  jumpForce: 7
   speedLimit: 2.5
   rotationSens: 4
   airControl: 0.5
@@ -5649,7 +5649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 2577004859444556789, guid: 18354f16e615c2d46a0f57a4f7a0df12, type: 3}
-  tent: {fileID: 0}
+  tent: {fileID: 5966826205955883481, guid: 7db7597b36c1805498471bcc5c1b238b, type: 3}
   platformSpawnPosition: {fileID: 1569915931}
   platformsHolder: {fileID: 418839827}
   upButton: {fileID: 1019841619}
@@ -5657,9 +5657,13 @@ MonoBehaviour:
   swapItemButton: {fileID: 0}
   defualtMaterial: {fileID: 2100000, guid: c0273817d9b557c4cbe78d17e9f64976, type: 2}
   ghostMaterial: {fileID: 2100000, guid: 883201fa7b0b32a4fbb9dc91426d7c0b, type: 2}
-  materialsList: []
-  lastTent: {fileID: 0}
-  gameStateController: {fileID: 0}
+  materialsList:
+  - {fileID: 2100000, guid: c0273817d9b557c4cbe78d17e9f64976, type: 2}
+  - {fileID: 2100000, guid: 883201fa7b0b32a4fbb9dc91426d7c0b, type: 2}
+  - {fileID: 2100000, guid: b14438b1c98347d4da2d4b5d697997ed, type: 2}
+  - {fileID: 2100000, guid: e20309dff78e4684bb83c8c0cbb61fa8, type: 2}
+  lastTent: {fileID: 868021400}
+  gameStateController: {fileID: 1113948434}
   _bag: {fileID: 0}
 --- !u!114 &1086869904
 MonoBehaviour:
@@ -7193,7 +7197,7 @@ PrefabInstance:
     - target: {fileID: 5301845899773700172, guid: 9455a84b944967f478e68632066f699d, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 4609498801301626917}
+      objectReference: {fileID: 4677938828018982}
     - target: {fileID: 5301845899773700173, guid: 9455a84b944967f478e68632066f699d, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -8380,7 +8384,7 @@ PrefabInstance:
     - target: {fileID: 5301845899773700172, guid: 9455a84b944967f478e68632066f699d, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 4609498801301626917}
+      objectReference: {fileID: 4677938828018982}
     - target: {fileID: 5301845899773700173, guid: 9455a84b944967f478e68632066f699d, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -13043,7 +13047,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607527604819182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 635.66, y: 58.087505, z: 351.66}
+  m_LocalPosition: {x: 683.66, y: 38.76, z: 363.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15240,11 +15244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1813573f52605944abf31b77eb23c474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &4609498801301626917 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6891329259316050435, guid: 386b1a1c7528a974f89fa845176f3a35, type: 3}
-  m_PrefabInstance: {fileID: 7714949162941644974}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4609498801301626921 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7714949163435944855, guid: 386b1a1c7528a974f89fa845176f3a35, type: 3}
@@ -15266,7 +15265,7 @@ PrefabInstance:
     - target: {fileID: 5301845899773700172, guid: 9455a84b944967f478e68632066f699d, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 4609498801301626917}
+      objectReference: {fileID: 4677938828018982}
     - target: {fileID: 5301845899773700173, guid: 9455a84b944967f478e68632066f699d, type: 3}
       propertyPath: m_RootOrder
       value: 12
